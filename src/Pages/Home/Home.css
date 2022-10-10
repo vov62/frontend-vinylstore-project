@@ -1,28 +1,26 @@
-.card {
+.carousel-card {
     overflow: hidden;
     max-height: 300px;
     background-color: #000;
 }
 
-.card img {
+.carousel-card img {
     width: 100%;
     height: 80vh;
     object-fit: cover;
 }
 
 .vinyl-section {
-    margin-top: 20px;
+    margin-top: 50px;
     background-color: #000;
-    height: 50vh;
+    /* max-height: 100vh; */
     color: #fff;
-}
-
-.vinyl-section-title {
-    padding: 20px;
+    padding: 10px;
 
 }
 
-.vinyl-selection-list {
-    border: 1px solid yellow;
-    height: 190px;
+.vinyl-section-title h4 {
+    /* padding: 10px; */
+    margin: 10px 0 12px 120px;
+    font-weight: 400;
 }

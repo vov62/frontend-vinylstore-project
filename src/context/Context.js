@@ -1,39 +1,45 @@
 import { createContext, useContext, useReducer, useEffect } from 'react';
+import fetchDataReducer from './Reducers'
 import axios from 'axios';
 
 const CartContext = createContext();
 
+const DISCOGS_URL = process.env.REACT_APP_DISCOGS_URL;
+const DISCOGS_KEY = process.env.REACT_APP_DISCOGS_KEY;
+
 const initialState = {
     loading: true,
     error: '',
-    data: {},
+    data: [],
     cart: [],
 }
-const cartReducer = (state, action) => {
-    switch (action.type) {
-        case 'FETCH_SUCCESS':
-            return {
-                loading: false,
-                data: action.payload,
-                error: ''
-            }
-        case 'FETCH_ERROR':
-            return {
-                loading: false,
-                data: {},
-                error: action.payload
-            }
-        default:
-            return state
-    }
-}
 
-const Context = ({ children }) => {
 
-    const [state, dispatch] = useReducer(cartReducer, initialState)
+const AppProvider = ({ children }) => {
+
+    const [state, dispatch] = useReducer(fetchDataReducer, initialState)
 
     // call api
-    useEffect(() => { }, []);
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+                const response = await axios(`${DISCOGS_URL}/database/search?&genre=reggae&year=1980&format=vinyl&token=${DISCOGS_KEY}`)
+                dispatch({ type: 'FETCH_SUCCESS', payload: response.data.results })
+                // console.log(response.data.results);
+
+            } catch (err) {
+                const message = err.message;
+                dispatch({ type: 'FETCH_ERROR', payload: message })
+
+            }
+
+        }
+
+        fetchData()
+    }, []);
+
+
     return (
         <CartContext.Provider value={{ state, dispatch }}>
             {children}
@@ -41,9 +47,9 @@ const Context = ({ children }) => {
     )
 }
 
-export const CartState = () => {
+export const useGlobalContext = () => {
     return useContext(CartContext);
 }
 
-export default Context
+export { AppProvider, CartContext }
 

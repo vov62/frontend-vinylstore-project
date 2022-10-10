@@ -1,4 +1,4 @@
-export const cartReducer = (state, action) => {
+const fetchDataReducer = (state, action) => {
 
     switch (action.type) {
         case 'FETCH_SUCCESS':
@@ -17,3 +17,5 @@ export const cartReducer = (state, action) => {
             return state
     }
 }
+
+export default fetchDataReducer;

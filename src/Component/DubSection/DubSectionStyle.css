@@ -1,0 +1,19 @@
+.dub-section {
+    margin-top: 40px;
+    color: #fff;
+    background-color: #000;
+    position: relative;
+    height: 70vh;
+}
+
+.dub-section-title {
+    padding: 10px;
+}
+
+.dub-search-link {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    padding: 8px;
+    font-size: 14px;
+}

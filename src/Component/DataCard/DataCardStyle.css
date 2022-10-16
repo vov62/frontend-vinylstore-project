@@ -4,7 +4,7 @@
     background-color: transparent !important;
     overflow: hidden !important;
     color: #eee;
-    /* border: '1px solid #fff'; */
+    border: none !important;
 }
 
 .card-img-top {
@@ -16,6 +16,10 @@
 .card-text {
     font-size: 16px;
     font-weight: 300;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 
 .card-text:hover {

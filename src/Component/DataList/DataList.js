@@ -1,6 +1,6 @@
 import React from 'react'
 import DataCard from '../DataCard/DataCard';
-import './dataList.css';
+import './DataListStyle.css';
 
 
 const DataList = ({ data }) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import noImage from '../../assets/no image.jpeg';
 import { Link } from 'react-router-dom';
-import './cardStyle.css';
+import './DataCardStyle.css';
 
 const DataCard = ({ image, title, id }) => {
     return (
@@ -20,7 +20,6 @@ const DataCard = ({ image, title, id }) => {
                     </h6>
                 </Link>
             </div>
-
         </Card >
     )
 }

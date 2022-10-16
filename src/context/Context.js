@@ -11,6 +11,7 @@ const initialState = {
     loading: true,
     error: '',
     data: [],
+    dubData: [],
     cart: [],
 }
 
@@ -19,9 +20,14 @@ const AppProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(fetchDataReducer, initialState)
 
+    // console.log('the state:', state);
+
+
+    // axios(`${DISCOGS_URL}/releases/3235614`)
+    // dispatch({ type: 'FETCH_LABEL', payload: label.data.results })
+
     // call api
     useEffect(() => {
-
         const fetchData = async () => {
             try {
                 const response = await axios(`${DISCOGS_URL}/database/search?&genre=reggae&year=1980&format=vinyl&token=${DISCOGS_KEY}`)
@@ -31,12 +37,21 @@ const AppProvider = ({ children }) => {
             } catch (err) {
                 const message = err.message;
                 dispatch({ type: 'FETCH_ERROR', payload: message })
-
             }
-
         }
 
+        const fetchLabelData = async () => {
+            try {
+                const response = await axios(`${DISCOGS_URL}/database/search?&style=reggae,dub&format=vinyl&token=${DISCOGS_KEY}`)
+                dispatch({ type: 'FETCH_DUB_STYLE', payload: response.data.results })
+                // console.log(response.data);
+
+            } catch (err) {
+                dispatch({ type: 'FETCH_ERROR', payload: err.message })
+            }
+        }
         fetchData()
+        fetchLabelData()
     }, []);
 
 

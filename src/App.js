@@ -5,6 +5,7 @@ import Search from './Pages/Search';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import SingleVinyl from './Pages/SingleVinyl';
+import Footer from './Component/Footer';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path='/cart' element={<Cart />} />
           <Route path='/vinyl/:id' element={<SingleVinyl />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );

@@ -7,19 +7,21 @@ import './DataCardStyle.css';
 const DataCard = ({ image, title, id }) => {
     return (
         <Card>
-            <img
-                src={!image ? noImage : image}
-                alt={title}
-                className='card-img-top'
-            />
+            <Link to={`/vinyl/${id}`}>
+                <img
+                    src={!image ? noImage : image}
+                    alt={title}
+                    className='card-img-top'
+                />
 
-            <div className='card-body'>
-                <Link to={`/vinyl/${id}`}>
+                <div className='card-body'>
+
                     <h6 className='card-text ' >
                         {title}
                     </h6>
-                </Link>
-            </div>
+                </div>
+            </Link>
+
         </Card >
     )
 }

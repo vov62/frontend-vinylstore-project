@@ -8,7 +8,7 @@ import './DubSectionStyle.css';
 
 
 const Labels = () => {
-    const { state: { dubData, loading, error } } = useGlobalContext();
+    const { dubData, loading, error } = useGlobalContext();
     // console.log(dubData);
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +24,7 @@ const Labels = () => {
             <div className="vinyl-section-title">
                 <h4>Shop Dub Reggae</h4>
                 {loading && <Loading />}
-                {error && { error }}
+                {error && <h2>{error}</h2>}
                 <div className='vinyl-selection-list'>
                     <DataList data={currentVinyl} />
                     <PaginationCustom

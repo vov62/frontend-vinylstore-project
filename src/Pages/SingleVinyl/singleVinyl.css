@@ -1,0 +1,106 @@
+.wrapper {
+    /* border: 3px red solid; */
+    background-color: #000;
+    color: #fff;
+    /* font-weight: 200; */
+}
+
+.data-container {
+    display: flex;
+}
+
+.back-home-link {
+    padding: 30px 0 0 50px;
+    color: #bebebe;
+    /* background-color: red; */
+}
+
+.vinyl-details {
+    width: 100%;
+    display: flex;
+    /* align-items: flex-start; */
+    flex-wrap: wrap;
+    /* border: 2px peru solid; */
+    margin: 10px 0 0 10%;
+}
+
+.vinyl-img img {
+    width: 300px;
+    height: 300px;
+    margin-right: 30px;
+}
+
+.vinyl-content {
+    color: #fff;
+    /* border: 1px solid brown; */
+    padding: 5px;
+    margin-left: 70px;
+}
+
+.vinyl-content h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.vinyl-content h4 {
+    color: #bebebe;
+    font-size: 18px;
+}
+
+.btns {
+    margin-top: 64px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btn.btn-primary {
+    background-color: #fc7053 !important;
+    transition: all .2s ease-in-out;
+    margin-left: 10px;
+    border-radius: 0;
+    border: none;
+}
+
+.btn.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.quantity-btn {
+    border: 1px solid #fff;
+    background-color: inherit;
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+}
+
+.quantity-btn-operator {
+    background-color: inherit;
+    color: #fff;
+    font-size: 16px;
+    margin: 6px 5px 0 5px;
+}
+
+.vinyl-img-carousel {
+    width: 350px;
+}
+
+.thumbs-wrapper.axis-vertical button {
+    display: none;
+}
+
+.thumbs-wrapper.axis-vertical img {
+    height: 80px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.carousel.thumb {
+    border: none;
+}
+
+.thumbs.animated {
+    margin: 0;
+    overflow: hidden;
+}

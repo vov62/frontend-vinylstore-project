@@ -11,8 +11,8 @@ const fetchDataReducer = (state, action) => {
         case 'FETCH_ERROR':
             return {
                 ...state,
-                loading: false,
-                data: {},
+                loading: true,
+                data: [],
                 error: action.payload
             }
         case 'FETCH_DUB_STYLE':
@@ -20,6 +20,13 @@ const fetchDataReducer = (state, action) => {
                 ...state,
                 loading: false,
                 dubData: action.payload,
+                error: ''
+            }
+        case 'FETCH_SINGLE_VINYL':
+            return {
+                ...state,
+                loading: false,
+                singleVinyl: action.payload,
                 error: ''
             }
         default:

@@ -13,55 +13,55 @@ const initialState = {
     data: [],
     dubData: [],
     cart: [],
+    singleVinyl: []
 }
 
 
 const AppProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(fetchDataReducer, initialState)
-
     // console.log('the state:', state);
 
+    // API call
+    const fetchData = async () => {
+        try {
+            const response = await axios(`${DISCOGS_URL}/database/search?&genre=reggae&year=1980&format=vinyl&token=${DISCOGS_KEY}`)
+            const data = response.data.results
+            dispatch({ type: 'FETCH_SUCCESS', payload: data })
+            // console.log(response.data.results);
 
-    // axios(`${DISCOGS_URL}/releases/3235614`)
-    // dispatch({ type: 'FETCH_LABEL', payload: label.data.results })
+        } catch (err) {
+            const message = err.message;
+            dispatch({ type: 'FETCH_ERROR', payload: message })
+        }
+    }
 
-    // call api
+    const fetchLabelData = async () => {
+        try {
+            const response = await axios(`${DISCOGS_URL}/database/search?&style=reggae,dub&format=vinyl&token=${DISCOGS_KEY}`)
+            const data = response.data.results
+            dispatch({ type: 'FETCH_DUB_STYLE', payload: data })
+            // console.log(response.data);
+
+        } catch (err) {
+            dispatch({ type: 'FETCH_ERROR', payload: err.message })
+        }
+    }
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios(`${DISCOGS_URL}/database/search?&genre=reggae&year=1980&format=vinyl&token=${DISCOGS_KEY}`)
-                dispatch({ type: 'FETCH_SUCCESS', payload: response.data.results })
-                // console.log(response.data.results);
-
-            } catch (err) {
-                const message = err.message;
-                dispatch({ type: 'FETCH_ERROR', payload: message })
-            }
-        }
-
-        const fetchLabelData = async () => {
-            try {
-                const response = await axios(`${DISCOGS_URL}/database/search?&style=reggae,dub&format=vinyl&token=${DISCOGS_KEY}`)
-                dispatch({ type: 'FETCH_DUB_STYLE', payload: response.data.results })
-                // console.log(response.data);
-
-            } catch (err) {
-                dispatch({ type: 'FETCH_ERROR', payload: err.message })
-            }
-        }
         fetchData()
         fetchLabelData()
     }, []);
 
 
     return (
-        <CartContext.Provider value={{ state, dispatch }}>
+        <CartContext.Provider value={{ ...state, dispatch }}>
             {children}
         </CartContext.Provider>
     )
 }
 
+// custom hook
 export const useGlobalContext = () => {
     return useContext(CartContext);
 }

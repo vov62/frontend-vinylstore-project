@@ -4,7 +4,7 @@ import Home from './Pages/Home/Home';
 import Search from './Pages/Search';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import SingleVinyl from './Pages/SingleVinyl';
+import SingleVinyl from './Pages/SingleVinyl/SingleVinyl';
 import Footer from './Component/Footer';
 
 const App = () => {

@@ -1,17 +1,21 @@
 import React from 'react';
-import ScaleLoader from "react-spinners/ScaleLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 
 
-const Loading = ({ color = 'brown' }) => {
+const Loading = ({ color = '' }) => {
 
     return (
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }}>
-            <ScaleLoader color={color} />
-        </div>
+        <>
+            <div style={{
+                position: 'absolute',
+                top: '30%',
+                left: '45%'
+
+            }}>
+                <ClipLoader color='red' size={50} />
+                <div>Loading...</div>
+            </div>
+        </>
     )
 }
 

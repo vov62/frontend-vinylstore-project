@@ -27,7 +27,10 @@ const AppProvider = ({ children }) => {
         try {
             const response = await axios(`${DISCOGS_URL}/database/search?&genre=reggae&year=1980&format=vinyl&token=${DISCOGS_KEY}`)
             const data = response.data.results
-            dispatch({ type: 'FETCH_SUCCESS', payload: data })
+
+            if (data) {
+                dispatch({ type: 'FETCH_SUCCESS', payload: data })
+            }
             // console.log(response.data.results);
 
         } catch (err) {
@@ -40,7 +43,9 @@ const AppProvider = ({ children }) => {
         try {
             const response = await axios(`${DISCOGS_URL}/database/search?&style=reggae,dub&format=vinyl&token=${DISCOGS_KEY}`)
             const data = response.data.results
-            dispatch({ type: 'FETCH_DUB_STYLE', payload: data })
+            if (data) {
+                dispatch({ type: 'FETCH_DUB_STYLE', payload: data })
+            }
             // console.log(response.data);
 
         } catch (err) {

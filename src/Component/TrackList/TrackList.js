@@ -1,24 +1,32 @@
 import React from 'react';
-import TrackTableData from '../TrackTableData/TrackTableData';
 import Table from 'react-bootstrap/Table';
+import './trackList.css';
 
 const TrackList = ({ trackList }) => {
 
     return (
-        <div className="tracklist-container" style={{ textAlign: 'center' }}>
+        <div className="tracklist-container" >
             <div>
-                <h1>Track List:</h1>
+                <h2>Track List</h2>
             </div>
-            {trackList.map((track, i) => {
-                return (
-                    <TrackTableData
-                        key={i}
-                        side={track.position}
-                        title={track.title}
-                        type={track.type_}
-                    />
-                )
-            })}
+            <Table bordered size='sm' variant="dark">
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Type</th>
+                </tr>
+                {trackList.map((track, i) => {
+                    return (
+                        <tbody>
+                            <tr>
+                                <td>{track.position}</td>
+                                <td >{track.title}</td>
+                                <td >{track.type_}</td>
+                            </tr>
+                        </tbody>
+                    )
+                })}
+            </Table>
         </div>
 
     )

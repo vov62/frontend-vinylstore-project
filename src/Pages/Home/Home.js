@@ -5,6 +5,7 @@ import { imageData } from '../../images/image'
 import DubSection from '../../Component/DubSection/DubSection';
 import Hits from '../../Component/Hits-section/Hits';
 import './Home.css';
+import Example from '../../Component/Example';
 
 const Home = () => {
 
@@ -22,12 +23,10 @@ const Home = () => {
                     </div>
                 ))}
             </Carousel>
-            <Hits />
+            <Example />
+            {/* <Hits /> */}
             <DubSection />
         </div>
-
-
-
     )
 }
 

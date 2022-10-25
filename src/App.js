@@ -6,21 +6,25 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import SingleVinyl from './Pages/SingleVinyl/SingleVinyl';
 import Footer from './Component/Footer';
+import ScrollToTop from './hooks/ScrollToTop ';
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <Header />
+
+    <Router>
+      <ScrollToTop />
+      <Header />
+      <main style={{ minHeight: '100vh' }}>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/vinyl/:id' element={<SingleVinyl />} />
         </Routes>
-        <Footer />
-      </Router>
-    </>
+      </main>
+      <Footer />
+    </Router>
+
   );
 }
 

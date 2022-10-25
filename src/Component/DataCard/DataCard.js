@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './DataCardStyle.css';
 
 const DataCard = ({ image, title, id }) => {
+
     return (
         <Card>
             <Link to={`/vinyl/${id}`}>
@@ -13,15 +14,15 @@ const DataCard = ({ image, title, id }) => {
                     alt={title}
                     className='card-img-top'
                 />
-
                 <div className='card-body'>
-
                     <h6 className='card-text ' >
                         {title}
                     </h6>
                 </div>
             </Link>
-
+            <Link to='/cart'>
+                <button className='btn-btn'>Add To Cart</button>
+            </Link>
         </Card >
     )
 }

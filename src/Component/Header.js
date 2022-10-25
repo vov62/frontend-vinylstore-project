@@ -27,9 +27,7 @@ const Header = () => {
                         </Dropdown.Menu>
                     </Dropdown>
                 </Nav>
-
             </Container>
-
         </Navbar>
     )
 }

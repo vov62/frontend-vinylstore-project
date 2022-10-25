@@ -1,5 +1,105 @@
-body {
+* {
   margin: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  height: 100%;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Hits, dub style component*/
+
+.vinyl-section {
+  margin-top: 50px;
+  background-color: #000;
+  color: #fff;
+  padding: 25px;
+  position: relative;
+
+}
+
+.vinyl-section-title h4 {
+  padding: 10px;
+  margin: 8px 0 12px 10px;
+  font-weight: 400;
+}
+
+.vinyl-link {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.vinyl-link:hover {
+  text-decoration: underline;
+}
+
+
+.dub-section {
+  color: #000;
+}
+
+.btn-btn {
+  background-color: crimson;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0;
+  padding: 5px 10px;
+  transition: all 250ms;
+}
+
+
+.btn-btn:hover,
+.btn-btn:focus {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: #fff;
+  /* opacity: 1; */
+}
+
+.btn-btn:active {
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px;
+}
+
+/* css carousal */
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev {
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  border: none;
+  border-radius: 5vw;
+  background-color: #f1f1f1;
+  z-index: 99 !important;
+  box-shadow: rgb(35 35 35 / 50%) 0px 0px 20px 5px;
+  top: 40%;
+  opacity: 0.6;
+}
+
+.slick-arrow.slick-next {
+  transform: scale(1.6);
+  right: 40px
+}
+
+.slick-arrow.slick-prev {
+  transform: scale(1.6);
+  left: 40px
+}
+
+.slick-prev:hover {
+  opacity: 1;
+}
+
+.slick-next:hover {
+  opacity: 1;
 }

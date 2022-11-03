@@ -7,7 +7,6 @@ A platform for Reagge music discovery and collection.</br>
 </br>
 </br>
 
-
 <h2>Stack 📚</h2>
 <hr>
 :white_medium_small_square: React
@@ -15,12 +14,12 @@ A platform for Reagge music discovery and collection.</br>
 :white_medium_small_square: React-Router-Dom
 :white_medium_small_square: React-Slick
 
-
 <h2>How To Run </h2>
 <hr>
 simply clone my repo <strong> 'git clone https://github.com/vov62/frontend-vinylstore-project.git',</strong></br>
 run 'npm install' to install dependencies,</br> 
 run 'npm start' to run the project  :grinning:
+</br>
 
 <img width="600" alt="vinyl project" src="https://user-images.githubusercontent.com/71568364/199798929-508ff02e-9b98-4755-ad32-3786f4ce06c5.png">
 </br>

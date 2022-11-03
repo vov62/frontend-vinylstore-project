@@ -10,6 +10,7 @@
 :white_medium_small_square: React-Bootstrap
 :white_medium_small_square: React-Router-Dom
 :white_medium_small_square: React-Slick
+:white_medium_small_square: Css
 <h2>How To Run </h2>
 simply clone my repo <strong> 'git clone https://github.com/vov62/frontend-vinylstore-project.git',</strong></br>
 run 'npm install' to install dependencies,</br> 

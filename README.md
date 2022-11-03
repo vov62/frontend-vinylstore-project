@@ -1,19 +1,16 @@
 
 <h1>About The Project 🙋</h1>
-<hr>
 <h3>Frontend Reggae vinyl App store.</h3>
-A platform for Reagge music discovery and collection.</br>
+:white_medium_small_square: A platform for Reagge music discovery and collection.</br>
 :white_medium_small_square: users can search for Reagge vinyl music and add them to the cart.
 </br>
 </br>
 <h2>Stack 📚</h2>
-<hr>
 :white_medium_small_square: React
 :white_medium_small_square: React-Bootstrap
 :white_medium_small_square: React-Router-Dom
 :white_medium_small_square: React-Slick
 <h2>How To Run </h2>
-<hr>
 simply clone my repo <strong> 'git clone https://github.com/vov62/frontend-vinylstore-project.git',</strong></br>
 run 'npm install' to install dependencies,</br> 
 run 'npm start' to run the project  :grinning:

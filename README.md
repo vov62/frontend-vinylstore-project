@@ -1,4 +1,9 @@
 
+About The Project 🙋
+Frontend Reggae vinyl App store .
+A platform for Reagge music discovery and collection.
+users can search for Reagge vinyl and add them to the cart.
+
 <img width="700" alt="vinyl project" src="https://user-images.githubusercontent.com/71568364/199798929-508ff02e-9b98-4755-ad32-3786f4ce06c5.png">
 
 

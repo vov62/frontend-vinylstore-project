@@ -20,6 +20,8 @@ simply clone my repo <strong> 'git clone https://github.com/vov62/frontend-vinyl
 run 'npm install' to install dependencies,</br> 
 run 'npm start' to run the project  :grinning:
 </br>
+</br>
+</br>
 
 <img width="600" alt="vinyl project" src="https://user-images.githubusercontent.com/71568364/199798929-508ff02e-9b98-4755-ad32-3786f4ce06c5.png">
 </br>

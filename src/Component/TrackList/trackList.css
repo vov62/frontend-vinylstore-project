@@ -2,18 +2,42 @@
     /* border: 1px solid salmon; */
     /* padding-top: 60px; */
     /* height: 100vh; */
+    background-color: #fafafa;
+    /* display: flex;
+    justify-content: space-around; */
+    /* border: 2px solid seagreen; */
+
 }
 
 .tracklist-container h2 {
-    margin: 10px 0 10px 210px;
+    padding: 15px 0 8px 210px;
+    font-weight: 600;
+}
+
+.tracklist-tb-data {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+.table {
+    max-width: 600px;
+    /* margin-left: 60px; */
+    /* background-color: black; */
+    color: #000;
+    /* margin-top: 30px; */
+    /* border: 2px solid #fff */
+    /* border: 1px dotted yellow; */
 
 }
 
-.table.table-dark {
-    max-width: 600px;
-    margin-left: 60px;
-    /* margin-top: 30px; */
-    /* border: 2px solid #fff */
+.tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    /* color: #000; */
 }
 
 
@@ -21,9 +45,14 @@
 
 
 @media only screen and (max-width: 800px) {
+    .tracklist-tb-data {
+        flex-direction: column;
+    }
 
     .tracklist-container h2 {
-        margin: 0;
+        text-decoration: underline;
+        padding-left: 120px;
+        font-weight: 600;
     }
 
     .table.table-dark {

@@ -32,7 +32,6 @@ const DataList = ({ data }) => {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
-                    dots: true
                 }
             },
             {
@@ -63,7 +62,9 @@ const DataList = ({ data }) => {
                                 key={i}
                                 image={item.cover_image}
                                 title={item.title}
+                                label={item.label[0]}
                                 id={item.id}
+                                item={item}
                             />
                         )
                     }

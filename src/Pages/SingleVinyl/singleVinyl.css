@@ -1,7 +1,10 @@
 .wrapper {
     /* border: 3px red solid; */
-    background-color: #000;
-    color: #fff;
+    /* background-color: #fafafa; */
+    /* background-color: rgb(21, 20, 20); */
+    /* color: #fff; */
+    color: #000;
+
 }
 
 .data-container {
@@ -12,14 +15,16 @@
 }
 
 .back-home-link {
-    padding: 30px 0 0 60px;
-    color: #bebebe;
+    padding: 20px 0 0 60px;
+    color: #000;
+    font-weight: 700;
 }
 
 .vinyl-details {
     margin: 5px 0 0 5%;
     /* background-color: red; */
     flex: 1;
+    /* padding: 0; */
 }
 
 .vinyl-img-carousel {
@@ -44,6 +49,9 @@
 
 .thumbs-wrapper.axis-vertical {
     /* border: 1px darkolivegreen solid; */
+    margin-top: 8px;
+    overflow: hidden;
+
 }
 
 .thumbs-wrapper.axis-vertical button {
@@ -51,8 +59,7 @@
 }
 
 .vinyl-img {
-    /* height: 400px; */
-    max-width: 400px;
+    max-width: 480px;
     object-fit: contain;
 }
 
@@ -60,51 +67,51 @@
     /* height: 400px; */
     /* width: 400px; */
     /* object-fit: contain; */
+
 }
 
 .vinyl-content {
     /* color: #fff; */
     padding: 5px;
-    /* margin-left: 70px; */
+    margin: 0 70px 0 0;
     flex: 1;
     /* max-width: 300px; */
     /* border: 2px solid #fc7053; */
+    color: #000;
+
 }
 
-.vinyl-content h1 {
+.vinyl-content p {
+    color: #000;
+}
+
+.vinyl-content>h1 {
     font-size: 25px;
     margin-bottom: 20px;
+    color: #000;
+    font-weight: 600;
+
 }
 
 .vinyl-content h4 {
     font-size: 18px;
     font-weight: inherit;
+    color: #000;
+    font-weight: 500;
 }
 
 .btns {
-    margin-top: 64px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.btn.btn-primary {
-    background-color: #fc7053 !important;
-    transition: all .2s ease-in-out;
-    margin-left: 10px;
-    border-radius: 0;
-    border: none;
-}
-
-.btn.btn-primary:hover {
-    opacity: 0.9;
-}
-
 .quantity-btn {
-    border: 1px solid #fff;
-    background-color: inherit;
+    /* border: 1px solid #fff; */
+    border: 1px solid #000;
+    background-color: #000;
     color: #fff;
-    /* height: 50px; */
+    /* color: #000; */
     text-align: center;
     margin-right: 8px;
 }
@@ -116,13 +123,73 @@
     margin: 2px 4px 0 4px;
 }
 
+/* .btn-btn-btn {
+    background-color: #ff3636;
+    background-color: #ccc999;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0;
+    padding: 5px 8px;
+    transition: all 250ms;
+    color: #333;
+    width: 100%;
+}
+
+.btn-btn-btn:hover,
+.btn-btn-btn:focus {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: #fff;
+    opacity: 1;
+}
+
+.btn-btn-btn:active {
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px;
+} */
+
+/* .wishlist-btn {
+    background-color: lightblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0;
+    padding: 5px 8px;
+    transition: all 250ms;
+    color: #000;
+    width: 100%;
+} */
+
 .wishlist-btn {
     background-color: transparent;
 }
 
-@media only screen and (max-width: 800px) {
+
+/* media */
+@media only screen and (max-width: 576px) {
+
     .data-container {
         flex-direction: column;
+        /* margin-top: 30px; */
+    }
+
+    .back-home-link {
+        padding: 30px 0 0 40px;
+        display: none;
+
+    }
+
+    .vinyl-details {
+        margin: auto;
+    }
+
+    .vinyl-img {
+        max-width: 414px;
+    }
+
+    .thumbs-wrapper.axis-vertical {
+        margin: 0;
     }
 
     .vinyl-content {
@@ -130,8 +197,15 @@
         margin: 10px;
     }
 
+    .vinyl-content>h1 {
+        margin-bottom: 5px;
+    }
+
     .btns {
-        margin-top: 0;
         justify-content: center;
+    }
+
+    .wishlist-btn {
+        padding: 0;
     }
 }

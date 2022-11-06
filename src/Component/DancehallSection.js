@@ -5,22 +5,22 @@ import DataList from './DataList/DataList';
 import Loading from './Loading';
 import Error from '../Component/Error'
 
-const Example = () => {
-    const { data, loading, error } = useGlobalContext();
+const DancehallSection = () => {
+    const { dancehallData, loading, error } = useGlobalContext();
     // console.log(data);
 
 
     return (
         <div className="vinyl-section">
             <div className="vinyl-section-title">
-                <h4> Shop 1980 Reggae Hits</h4>
+                <h4> Shop Dancehall Hits</h4>
                 {loading && <Loading />}
                 {error && <Error variant='danger'>{error}</Error>}
                 <div className="vinyl-selection-list">
-                    <DataList data={data} />
+                    <DataList data={dancehallData} />
                     <div className="vinyl-link">
                         <Link to='/search'>
-                            Search more hits &gt;
+                            More Dancehall Hits &gt;
                         </Link>
                     </div>
                 </div>
@@ -29,4 +29,4 @@ const Example = () => {
     )
 }
 
-export default Example
+export default DancehallSection

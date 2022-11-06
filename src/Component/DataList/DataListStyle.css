@@ -23,3 +23,22 @@
     margin: 0 10px;
 
 }
+
+/* media */
+@media only screen and (max-width: 576px) {
+
+    .cardList {
+        /* background-color: red; */
+        /* padding: 100%; */
+        margin-left: 5px;
+    }
+
+    .slick-arrow.slick-prev {
+        left: 0;
+    }
+
+    .slick-arrow.slick-next {
+        right: 0;
+    }
+
+}

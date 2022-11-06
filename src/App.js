@@ -7,6 +7,7 @@ import './App.css';
 import SingleVinyl from './Pages/SingleVinyl/SingleVinyl';
 import Footer from './Component/Footer';
 import ScrollToTop from './hooks/ScrollToTop ';
+import { NotFoundPage } from './Pages/NotFoundPage';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Header />
       <main style={{ minHeight: '100vh' }}>
         <Routes>
+          <Route path='*' element={<NotFoundPage />} />
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/cart' element={<Cart />} />

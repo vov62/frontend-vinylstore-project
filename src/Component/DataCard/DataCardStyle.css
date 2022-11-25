@@ -22,13 +22,19 @@
 }
 
 .card-text {
-    margin: 10px 0;
-    font-size: 16px;
-    font-weight: 300;
+    margin: 5px 0;
+    /* font-size: 16px; */
+    font-weight: 600;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+
+.card-text span {
+    font-size: 12px;
+    /* font-weight: 400; */
+    /* margin: 0 30px; */
 }
 
 .card-text:hover {

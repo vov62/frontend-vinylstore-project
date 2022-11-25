@@ -5,9 +5,10 @@ import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import { BsVinylFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import { useGlobalContext } from "../context/Context";
+import { Button } from "react-bootstrap";
 
 const Header = () => {
-  const { cart, dispatch } = useGlobalContext();
+  const { cart, dispatch, singleVinyl } = useGlobalContext();
 
   return (
     <Navbar
@@ -43,7 +44,11 @@ const Header = () => {
             <Nav.Link as={Link} to="/wishlist">
               <span>
                 <BsHeart
-                  style={{ fill: "#fff", marginRight: "5px", fontSize: "16px" }}
+                  style={{
+                    fill: "#fff",
+                    marginRight: "5px",
+                    fontSize: "16px",
+                  }}
                 />
               </span>
               Wishlist
@@ -54,19 +59,23 @@ const Header = () => {
                 <Badge bg="transparent">{cart.length}</Badge>
               </Dropdown.Toggle>
 
-              <Dropdown.Menu style={{ minWidth: 370 }}>
+              <Dropdown.Menu style={{ minWidth: 400 }}>
                 {cart.length > 0 ? (
                   <>
                     {cart.map((item) => (
                       <span key={item.id} className="cartItem">
                         <img
-                          src={item.cover_image}
-                          alt={item.title}
+                          src={item.images[0].resource_url}
+                          alt=""
                           className="cartItemImg"
                         />
 
                         <div className="cartItemDetail">
                           <span>{item.title}</span>
+                          <span>
+                            &euro;
+                            {item.lowest_price.toString().split(".")[0]}
+                          </span>
                         </div>
 
                         <FaTrash
@@ -81,6 +90,14 @@ const Header = () => {
                         />
                       </span>
                     ))}
+                    <Link to="/cart">
+                      <Button
+                        variant="success"
+                        style={{ width: "95%", margin: "0 10px" }}
+                      >
+                        Go To Cart
+                      </Button>
+                    </Link>
                   </>
                 ) : (
                   <span style={{ padding: 10 }}>Cart is Empty!</span>

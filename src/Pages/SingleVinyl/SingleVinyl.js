@@ -27,7 +27,7 @@ const SingleVinyl = () => {
   const [newData, setNewData] = useState();
   const [video, setVideos] = useState([]);
 
-  const { singleVinyl, loading, error, dispatch } = useGlobalContext();
+  const { singleVinyl, loading, error, dispatch, cart } = useGlobalContext();
   // console.log(singleVinyl);
 
   const fetchSingleVinyl = async () => {
@@ -39,14 +39,18 @@ const SingleVinyl = () => {
       });
       const data = response.data;
 
-      if (data.images) {
-        setImgDesc(data.images);
-      }
       if (data) {
         dispatch({ type: "FETCH_SINGLE_VINYL", payload: data });
         setTrackList(data.tracklist);
+        // setVideos(data.videos[0].uri);
+      }
+      if (data.images) {
+        setImgDesc(data.images);
+      }
+      if (data.videos) {
         setVideos(data.videos[0].uri);
       }
+
       setNewData(data.formats[0].descriptions[0]);
     } catch (err) {
       const message = err.message;
@@ -98,9 +102,10 @@ const SingleVinyl = () => {
           </p>
 
           <h4 style={{ color: "yellowgreen" }}>
-            {" "}
             &euro;
-            {lowest_price ? lowest_price : "not in stock"}
+            {lowest_price && lowest_price > 1
+              ? lowest_price.toString().split(".")[0]
+              : "not in stock"}
           </h4>
           <hr />
           <h4> {artists_sort}</h4>
@@ -124,7 +129,42 @@ const SingleVinyl = () => {
                         </Link>
                     </div> */}
 
-          <button
+          <div>
+            {cart.some((v) => v.id === singleVinyl.id) ? (
+              <button
+                className="removeCard-btn"
+                onClick={() => {
+                  dispatch({
+                    type: "REMOVE_FROM_CART",
+                    payload: singleVinyl,
+                  });
+                }}
+              >
+                <span style={{ marginRight: "3px" }}>
+                  <FaShoppingCart fontSize="18px" />
+                </span>
+                Remove from Cart
+              </button>
+            ) : (
+              <button
+                disabled={!num_for_sale}
+                className="btn-btn "
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_CART",
+                    payload: singleVinyl,
+                  });
+                }}
+              >
+                <span style={{ marginRight: "3px" }}>
+                  <FaShoppingCart fontSize="18px" />
+                </span>
+                Add To Cart
+              </button>
+            )}
+          </div>
+
+          {/* <button
             className="btn-btn"
             onClick={() => {
               dispatch({
@@ -137,7 +177,7 @@ const SingleVinyl = () => {
               <FaShoppingCart fontSize="18px" />
             </span>
             Add To Cart
-          </button>
+          </button> */}
 
           {/* <Link to='/cart'>
                         <button className='-wishlist-btn'>Add To Wishlist</button>

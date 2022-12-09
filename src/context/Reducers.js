@@ -6,7 +6,7 @@ export const initialState = {
   dancehallData: [],
   singleVinyl: [],
   cart: [],
-  products: [],
+  wishlist: [],
   total: 0,
   images: [],
 };
@@ -48,21 +48,6 @@ export const fetchDataReducer = (state, action) => {
         singleVinyl: action.payload,
         error: "",
       };
-    // case 'ADD_TO_CART':
-    //     return {
-    //         ...state,
-    //         cart: action.payload.cart
-    //     }
-    // case 'REMOVE_FROM_CART':
-    //     return {
-    //         ...state,
-    //         cart: action.payload.cart
-    //     }
-    // case 'UPDATE_PRICE':
-    //     return {
-    //         ...state,
-    //         total: action.payload.total
-    //     }
     case "ADD_TO_CART":
       return {
         ...state,
@@ -80,6 +65,18 @@ export const fetchDataReducer = (state, action) => {
           cart.id === action.payload.id
             ? (cart.qty = action.payload.qty)
             : cart.qty
+        ),
+      };
+    case "ADD_TO_WISHLIST":
+      return {
+        ...state,
+        wishlist: [...state.wishlist, { ...action.payload }],
+      };
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishlist: state.wishlist.filter(
+          (wishlist) => wishlist.id !== action.payload.id
         ),
       };
     default:

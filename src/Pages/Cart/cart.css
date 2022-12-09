@@ -1,27 +1,43 @@
-.cart-container {}
+.cart-container h3 {
+    text-align: center;
+    padding: 8px;
+    margin-top: 20px;
+}
 
 .cart-wrapper {
     display: flex;
     padding: 20px;
-    /* gap: 20px; */
 }
 
 .vinyls {
-    /* border: 2px solid #000; */
     min-width: 70%;
-    /* display: flex; */
     padding-right: 40px;
-    /* flex-wrap: wrap; */
-    /* justify-content: flex-start; */
+}
+
+.order-vinyl-details {
+    min-height: 100px;
+    display: flex;
+    border: 1px solid lightgray;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.order-vinyl-details .title {
+    max-width: 220px;
+}
+
+.form-control {
+    width: 50px !important;
+    background-color: red;
 }
 
 .sub-total-items {
     min-width: 30%;
     background-color: #f1f1f1;
-    /* display: flex; */
+    border-radius: 10px;
+
     flex-direction: column;
     align-items: center;
-    /* margin: 10px; */
     min-height: 60vh;
     padding: 16px;
 }
@@ -52,6 +68,9 @@
 @media only screen and (max-width: 576px) {
     .cart-wrapper {
         flex-direction: column;
+        gap: 50px;
+        /* padding: 0; */
+        width: 100%;
     }
 
     .vinyls {
@@ -59,4 +78,50 @@
         padding-right: 0;
     }
 
+    .order-vinyl-details {
+        /* flex-direction: column; */
+        /* align-items: flex-start; */
+    }
+
+    .order-vinyl-details img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .order-vinyl-details .title {
+        max-width: 80px;
+    }
+
+    .sub-total-items {
+        min-height: 40vh;
+    }
+
+    .list-group {
+        /* margin-top: 20px; */
+    }
+
+    .list-group-item {
+        /* border: none !important;
+        border-radius: unset;
+        margin-top: 20px;
+        border-bottom: 1px solid #ddd !important; */
+    }
+
+    .list-group-item .col img {
+        /* width: 100px;
+        height: 100px; */
+    }
+
+    .list-group-item .col-md {
+        /* background-color: b; */
+        /* padding: 3px; */
+        /* margin-top: 2px; */
+        /* font-size: 20px; */
+        /* text-align: unset !important; */
+    }
+
+    .list-group-item .col-md .form-control {
+        /* background-color: red; */
+        /* width: 50px; */
+    }
 }

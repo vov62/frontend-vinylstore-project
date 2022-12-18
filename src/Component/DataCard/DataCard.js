@@ -8,7 +8,6 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useGlobalContext } from "../../context/Context";
 
 const DataCard = ({ image, title, id, item, label }) => {
-  const { cart, dispatch } = useGlobalContext();
   // console.log(cart);
 
   return (
@@ -26,39 +25,6 @@ const DataCard = ({ image, title, id, item, label }) => {
           </h6>
         </div>
       </Link>
-      {/* <div>
-        {cart.some((v) => v.id === item.id) ? (
-          <button
-            className="removeCard-btn"
-            onClick={() => {
-              dispatch({
-                type: "REMOVE_FROM_CART",
-                payload: item,
-              });
-            }}
-          >
-            <span style={{ marginRight: "3px" }}>
-              <FaShoppingCart fontSize="18px" />
-            </span>
-            Remove from Cart
-          </button>
-        ) : (
-          <button
-            className="btn-btn"
-            onClick={() => {
-              dispatch({
-                type: "ADD_TO_CART",
-                payload: item,
-              });
-            }}
-          >
-            <span style={{ marginRight: "3px" }}>
-              <FaShoppingCart fontSize="18px" />
-            </span>
-            Add To Cart
-          </button>
-        )}
-      </div> */}
     </Card>
   );
 };

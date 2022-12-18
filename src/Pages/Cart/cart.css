@@ -28,7 +28,6 @@
 
 .form-control {
     width: 50px !important;
-    background-color: red;
 }
 
 .sub-total-items {
@@ -53,14 +52,16 @@
     margin-top: 20px;
 }
 
-.order-price p {
+.order-price p,
+.total-payment {
     margin-right: 8px;
     display: flex;
     justify-content: space-between;
 }
 
-.order-price p>span {
-    font-weight: 700;
+.total-payment,
+.total-payment>span {
+    font-weight: bold;
 }
 
 

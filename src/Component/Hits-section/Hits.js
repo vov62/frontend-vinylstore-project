@@ -14,7 +14,12 @@ const Hits = () => {
       <div className="vinyl-section-title">
         <h4> Shop 1980 Reggae Hits</h4>
         {loading && <Loading />}
-        {error && <Error variant="danger">{error}</Error>}
+        {error && (
+          <Error variant="danger">
+            {error}
+            <p>please refresh the page or check your network connection...</p>
+          </Error>
+        )}
         <div className="vinyl-selection-list">
           <DataList data={data} />
           <div className="vinyl-link">

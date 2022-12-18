@@ -3,8 +3,6 @@ import { Button, Card } from "react-bootstrap";
 import { useGlobalContext } from "../context/Context";
 import Modal from "react-bootstrap/Modal";
 import { GrClose } from "react-icons/gr";
-import leftArrow from "../assets/lerft-arrow.svg";
-import rightArrow from "../assets/right-arrow.svg";
 import { Link } from "react-router-dom";
 
 const VinylModal = (props) => {
@@ -32,7 +30,7 @@ const VinylModal = (props) => {
             {wishlist.map((item, i) => {
               return (
                 <>
-                  <Link to={`/vinyl/${item.id}`}>
+                  <Link to={`vinyl/${item.id}`}>
                     <Card className="modal-card" key={i}>
                       <img
                         src={item.images[0].resource_url}

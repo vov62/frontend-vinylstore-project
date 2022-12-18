@@ -11,6 +11,7 @@ import VinylModal from "./VinylModal";
 
 const Header = () => {
   const { cart, dispatch, singleVinyl, wishlist } = useGlobalContext();
+  const [expanded, setExpanded] = useState(false);
 
   // modal
   const [modalShow, setModalShow] = useState(false);
@@ -20,6 +21,7 @@ const Header = () => {
       <Navbar
         collapseOnSelect
         expand="sm"
+        expanded={expanded}
         variant="dark"
         // bg='dark'
         style={{
@@ -35,16 +37,37 @@ const Header = () => {
             <BsVinylFill
               style={{ marginRight: "10px", color: "transparent" }}
             />
-            <Link to="/">Vinyl-Store</Link>
+            <Link to="/" onClick={() => setExpanded(false)}>
+              Vinyl-Store
+            </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            onClick={() => setExpanded(expanded ? false : "expanded")}
+          />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">
+              <Nav.Link
+                as={Link}
+                to="/"
+                onClick={() =>
+                  setTimeout(() => {
+                    setExpanded(false);
+                  }, 150)
+                }
+              >
                 Home
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/search">
+              <Nav.Link
+                as={Link}
+                to="/SearchVinyl"
+                onClick={() =>
+                  setTimeout(() => {
+                    setExpanded(false);
+                  }, 150)
+                }
+              >
                 Store
               </Nav.Link>
             </Nav>
@@ -115,7 +138,14 @@ const Header = () => {
                           />
                         </span>
                       ))}
-                      <Link to="/cart">
+                      <Link
+                        to="/cart"
+                        onClick={() =>
+                          setTimeout(() => {
+                            setExpanded(false);
+                          }, 150)
+                        }
+                      >
                         <Button
                           variant="success"
                           style={{ width: "95%", margin: "0 10px" }}

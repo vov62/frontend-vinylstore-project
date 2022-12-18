@@ -34,12 +34,13 @@ const TrackList = ({ trackList, video }) => {
         {video && (
           <div>
             <ReactPlayer
+              sandbox="allow-presentation"
               url={video}
               width="400px"
               height="240px"
               controls={true}
               style={{ marginBottom: "20px" }}
-            />
+            ></ReactPlayer>
           </div>
         )}
       </div>

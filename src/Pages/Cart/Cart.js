@@ -7,6 +7,7 @@ import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import noImage from "../../assets/no image.jpeg";
+import Alert from "react-bootstrap/Alert";
 import "./cart.css";
 
 const Cart = () => {
@@ -30,10 +31,15 @@ const Cart = () => {
       <h3>Your Shopping Cart</h3>
       <hr />
 
-      {!cart ? (
-        <div>
-          <h2>nothing to show...</h2>
-        </div>
+      {!cart.length > 0 ? (
+        <>
+          <Alert variant="warning" className="text-center">
+            <h3>Your cart is currently empty</h3>
+            <Link to="/">
+              <Button variant="warning">Back To Home Page</Button>
+            </Link>
+          </Alert>
+        </>
       ) : (
         <div className="cart-wrapper">
           <div className="vinyls">
@@ -94,9 +100,9 @@ const Cart = () => {
                 Shipping: <span>&euro; 0</span>
               </p>
               <hr />
-              <p>
+              <h5 className="total-payment">
                 Total Payment: <span> &euro; {total}</span>
-              </p>
+              </h5>
             </div>
             <Link to="#">
               <Button

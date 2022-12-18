@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context/Context";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Loading from "../../Component/Loading";
 import Error from "../../Component/Error";
 import axios from "axios";
@@ -18,11 +18,12 @@ const DISCOGS_KEY = process.env.REACT_APP_DISCOGS_KEY;
 
 const SingleVinyl = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   // console.log(id);
   const [trackList, setTrackList] = useState([]);
   const [imgDesc, setImgDesc] = useState([]);
   // const [quantity, setQuantity] = useState(1);
-  const [newData, setNewData] = useState();
+  const [format, setFormat] = useState();
   const [video, setVideos] = useState([]);
 
   const { singleVinyl, loading, error, dispatch, cart, wishlist } =
@@ -49,7 +50,9 @@ const SingleVinyl = () => {
         setVideos(data.videos[0].uri);
       }
 
-      setNewData(data.formats[0].descriptions[0]);
+      if (data.formats[0]) {
+        setFormat(data.formats[0].name);
+      }
     } catch (err) {
       const message = err.message;
       dispatch({ type: "FETCH_ERROR", payload: message });
@@ -70,13 +73,17 @@ const SingleVinyl = () => {
     genres,
   } = singleVinyl;
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="wrapper">
       <div className="back-home-link">
-        <Link to="/">
+        <div onClick={goBack} style={{ cursor: "pointer" }}>
           <BsArrowLeft fill="#000" />
           Go Back
-        </Link>
+        </div>
       </div>
       {error && <Error variant="danger">{error}</Error>}
       {loading && <Loading />}
@@ -98,7 +105,7 @@ const SingleVinyl = () => {
         <div className="vinyl-content">
           <h1>{title}</h1>
           <p>
-            {newData} | {genres}
+            {format} | {genres}
           </p>
           <h4 style={{ color: "yellowgreen" }}>
             &euro;
@@ -111,39 +118,6 @@ const SingleVinyl = () => {
           <h4> {country}</h4>
           <h4> {released ? released : "unknown"}</h4>
           <h4>{num_for_sale ? `${num_for_sale} for sale` : "not in stock"}</h4>
-          {/* {wishlist ? (
-            <button
-              className="wishlist-btn"
-              style={{ border: "none" }}
-              onClick={() => {
-                // console.log(singleVinyl);
-                dispatch({
-                  type: "REMOVE_FROM_WISHLIST",
-                  payload: singleVinyl,
-                });
-              }}
-            >
-              {num_for_sale ? <AiFillHeart size={"25px"} fill="red" /> : null}
-            </button>
-          ) : (
-            <button
-              className="wishlist-btn"
-              style={{ border: "none" }}
-              onClick={() => {
-                dispatch({
-                  type: "ADD_TO_WISHLIST",
-                  payload: singleVinyl,
-                });
-              }}
-            >
-              {/* {num_for_sale ? <BsHeart size={"22px"} fill="#000" /> : null} */}
-          {/* {wishlist ? (
-                <BsHeart size={"22px"} fill="#000" />
-              ) : (
-                <AiFillHeart size={"25px"} fill="red" />
-              )} */}
-          {/* </button> */}
-          {/* )} */}
 
           {wishlist.some((v) => v.id === singleVinyl.id) ? (
             <button

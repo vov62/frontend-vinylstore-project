@@ -7,8 +7,8 @@ export const initialState = {
   singleVinyl: [],
   cart: [],
   wishlist: [],
-  total: 0,
   images: [],
+  searchVinylResults: [],
 };
 
 export const fetchDataReducer = (state, action) => {
@@ -46,6 +46,13 @@ export const fetchDataReducer = (state, action) => {
         ...state,
         loading: false,
         singleVinyl: action.payload,
+        error: "",
+      };
+    case "SEARCH_VINYL_DATA":
+      return {
+        ...state,
+        loading: false,
+        searchVinylResults: action.payload,
         error: "",
       };
     case "ADD_TO_CART":

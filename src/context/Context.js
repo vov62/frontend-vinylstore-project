@@ -1,8 +1,13 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import { fetchDataReducer, initialState } from "./Reducers";
+import {
+  fetchDataReducer,
+  initialState,
+  filterReducer,
+  filterInitialState,
+} from "./Reducers";
 import axios from "axios";
 
-const CartContext = createContext();
+const AppContext = createContext();
 
 const DISCOGS_URL = process.env.REACT_APP_DISCOGS_URL;
 const DISCOGS_KEY = process.env.REACT_APP_DISCOGS_KEY;
@@ -10,6 +15,12 @@ const DISCOGS_KEY = process.env.REACT_APP_DISCOGS_KEY;
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(fetchDataReducer, initialState);
   console.log("the state:", state);
+
+  const [filterState, filterDispatch] = useReducer(
+    filterReducer,
+    filterInitialState
+  );
+  console.log("filter state:", filterState);
 
   // API call
   const fetchData = async () => {
@@ -28,7 +39,7 @@ const AppProvider = ({ children }) => {
       dispatch({ type: "FETCH_ERROR", payload: message });
     }
   };
-  const fetchLabelData = async () => {
+  const fetchDubData = async () => {
     try {
       const response = await axios(
         `${DISCOGS_URL}/database/search?&style=reggae,dub&format=vinyl&token=${DISCOGS_KEY}`
@@ -59,49 +70,22 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-    fetchLabelData();
+    fetchDubData();
     fetchDancehallData();
   }, []);
 
-  const addToCart = (product) => {
-    const updatedCart = state.cart.concat(product);
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: { cart: updatedCart },
-    });
-  };
-
-  const removeFromCart = (product) => {
-    const updatedCart = state.cart.filter(
-      (currentProduct) => currentProduct.name !== product.name
-    );
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      payload: { cart: updatedCart },
-    });
-  };
-
-  const updatePrice = (products) => {
-    let total = 0;
-    products.forEach((produce) => {
-      total += produce.price;
-    });
-    dispatch({
-      type: "UPDATE_PRICE",
-      payload: { total },
-    });
-  };
-
   return (
-    <CartContext.Provider value={{ ...state, dispatch }}>
+    <AppContext.Provider
+      value={{ ...state, dispatch, filterState, filterDispatch }}
+    >
       {children}
-    </CartContext.Provider>
+    </AppContext.Provider>
   );
 };
 
 // custom hook
 export const useGlobalContext = () => {
-  return useContext(CartContext);
+  return useContext(AppContext);
 };
 
-export { AppProvider, CartContext };
+export { AppProvider, AppContext };

@@ -47,6 +47,8 @@ tr {
 @media only screen and (max-width: 800px) {
     .tracklist-tb-data {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .tracklist-container h2 {
@@ -59,5 +61,4 @@ tr {
         max-width: 100%;
         margin: 0;
     }
-
 }

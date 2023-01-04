@@ -45,20 +45,61 @@ a {
   border-bottom: 1px solid #ddd;
 }
 
+.navbar-nav .nav-li::after {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 2px;
+  background: #fec400;
+  transition: 0.4s
+}
+
+.navbar-nav .nav-li:hover::after {
+  width: 100%;
+  /* transition: 0.2s; */
+}
+
+.navbar-nav .nav-li:hover {
+  color: #fec400 !important;
+
+}
+
+.nav-li.active {
+  color: #fec400 !important;
+  /* background: #fec400; */
+
+}
+
+.navbar-nav .nav-li {
+  color: #fec400;
+  padding: 25px 5px;
+}
 
 @media only screen and (max-width: 576px) {
   .dropdown-menu.show.dropdown-menu-end {
     min-width: 300px !important;
   }
+
+  .navbar-nav .nav-li:hover::after {
+    width: 0;
+    /* transition: 0.2s; */
+  }
+
+  .navbar-nav .nav-li {
+    padding: 8px 5px;
+  }
+
 }
 
 
-/* Hits, dub style component*/
+/* Hits, dub, dancehall section style component*/
 
 .vinyl-section {
   margin-top: 50px;
   /* background-color: #252525; */
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
+  background-color: #eef2f3;
+
   /* color: #fff; */
   padding: 30px;
   position: relative;
@@ -115,6 +156,13 @@ a {
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px;
 }
 
+.disabled-btn {
+  background-color: #cccccc;
+  border: 1px solid #999999;
+  color: #666666;
+
+}
+
 .removeCard-btn {
   background-color: #ff3636;
   border: none;
@@ -139,17 +187,26 @@ a {
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px;
 }
 
+@media only screen and (max-width: 576px) {
+  .vinyl-section {
+    padding: 20px 0 70px 0;
+    /* border: 1px solid #333; */
+  }
+}
+
 /* css carousal */
 .slick-arrow.slick-next,
 .slick-arrow.slick-prev {
   position: absolute;
   z-index: 999;
   cursor: pointer;
-  border: none;
-  border-radius: 5vw;
-  background-color: #f1f1f1;
+  /* border: none; */
+  /* border: 1px solid #0e0e0e; */
+  /* border-radius: 8vw; */
+  /* background-color: #f1f1f1; */
+  /* background-color: #111; */
   z-index: 99 !important;
-  box-shadow: rgb(35 35 35 / 50%) 0px 0px 20px 5px;
+  /* box-shadow: rgb(35 35 35 / 50%) 0px 0px 20px 5px; */
   top: 40%;
   opacity: 0.6;
 }
@@ -176,6 +233,26 @@ a {
   color: red;
 }
 
+/* media */
+@media only screen and (max-width: 576px) {
+
+  .slick-arrow.slick-next,
+  .slick-arrow.slick-prev {
+    display: block;
+    top: 100%;
+    margin-top: 3%;
+  }
+
+  .slick-arrow.slick-next {
+    right: 40%
+  }
+
+  .slick-arrow.slick-prev {
+    left: 40%;
+
+
+  }
+}
 
 /* Modal  */
 .modal-card-wrapper {
@@ -185,7 +262,7 @@ a {
 
 .card.modal-card {
   margin: 20px !important;
-  background-color: #f1f1f1 !important;
+  /* background-color: #f1f1f1 !important; */
 
 }
 

@@ -1,12 +1,30 @@
 .card {
-    max-width: 220px !important;
+    max-width: 190px !important;
     min-height: 300px !important;
     background-color: transparent !important;
     overflow: hidden !important;
-    /* color: #eee; */
-    /* border: 1px seashell solid !important; */
-    border: none !important;
+    border: 1px #000 solid !important;
+    /* border: none !important; */
     margin: 0 auto;
+    margin-top: 30px;
+    position: relative;
+    top: 0;
+    transition: top .5s ease;
+    /* background-color: #f1f1f1 !important; */
+    /* background: linear-gradient(to right, #42A487, #DBB333, #BB4D0F); */
+}
+
+.card:hover {
+    /* border: 1px #111 solid !important; */
+    box-shadow: 0 0 2px #111;
+    top: -10px;
+
+}
+
+.card-body {
+    padding: 0 !important;
+    margin-top: 10px;
+    /* border: 1px solid salmon; */
 }
 
 .card-img-top {
@@ -16,31 +34,53 @@
 }
 
 .card-img-top:hover {
-    /* opacity: 0.7; */
-    transition: all .3s ease-in-out;
-    transform: scale(1.1);
+    /* transition: all .2s ease;
+    transform: scale(1.1); */
 }
 
 .card-text {
-    margin: 5px 0;
-    /* font-size: 16px; */
+    padding: 2px;
+    margin: 2px 0;
+    font-size: 14px;
     font-weight: 600;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 
-.card-text span {
+.card-body>span {
     font-size: 12px;
     /* font-weight: 400; */
-    /* margin: 0 30px; */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-text:hover {
     text-decoration: underline;
     /* text-decoration-color: #eee; */
     text-decoration-color: #333;
+}
+
+.cardVinylDetails {
+    margin-top: 12px;
+    padding: 0 8px 0 8px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cardVinylDetails-country {
+    font-size: 14px;
+}
+
+.cardVinylDetails-format {
+    background-color: #DBB333;
+    min-width: 25px;
+    text-align: center;
+    border-radius: 5px;
 }
 
 /* media */

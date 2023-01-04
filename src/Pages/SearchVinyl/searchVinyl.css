@@ -15,12 +15,32 @@
 
 .filterItem {
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
-.filterItem>h5 {
+.filterItem>h6 {
     font-weight: 600;
-    margin-bottom: 15px;
+    margin: 12px 0;
+    text-align: center;
 }
+
+.filter-btn-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-btn {
+    border: none;
+    color: #000;
+}
+
+.filter-btn.active {
+    /* background-color: aqua; */
+    color: #ccc999
+}
+
+
 
 .filterItem input {
     margin-bottom: 5px;
@@ -47,4 +67,37 @@
     border-radius: 10px;
     border: 1px solid black;
     outline: none;
+}
+
+
+
+
+@media only screen and (max-width: 576px) {
+
+    .search-vinyl-container {
+        flex-direction: column;
+        padding: 0;
+
+    }
+
+    .left {
+
+        position: unset;
+    }
+
+    .filterItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .filter-btn-list {
+        flex-direction: row;
+
+    }
+
+    .right {
+        padding: 0;
+    }
+
 }

@@ -9,6 +9,7 @@ export const initialState = {
   wishlist: [],
   images: [],
   searchVinylResults: [],
+  // filter: { category: "all" },
 };
 
 export const fetchDataReducer = (state, action) => {
@@ -55,6 +56,22 @@ export const fetchDataReducer = (state, action) => {
         searchVinylResults: action.payload,
         error: "",
       };
+
+    // case "FILTER_PRODUCTS":
+    //   let { searchVinylResults } = state;
+    //   let tempFilterProduct = [...searchVinylResults];
+
+    //   const { category } = state.filters;
+
+    //   if (category) {
+    //     tempFilterProduct = tempFilterProduct.filter((curElem) => {
+    //       return curElem.category === category;
+    //     });
+    //   }
+    //   return {
+    //     ...state,
+    //     filter_products: tempFilterProduct,
+    //   };
     case "ADD_TO_CART":
       return {
         ...state,
@@ -86,6 +103,7 @@ export const fetchDataReducer = (state, action) => {
           (wishlist) => wishlist.id !== action.payload.id
         ),
       };
+
     default:
       return state;
   }
@@ -103,6 +121,34 @@ export const cartReducer = (state, action) => {
         ...state,
         cart: state.cart.filter((c) => c.id !== action.payload.id),
       };
+    default:
+      return state;
+  }
+};
+
+export const filterInitialState = {
+  filter_products_category: [],
+  filter_products_formats: [],
+};
+
+export const filterReducer = (state, action) => {
+  switch (action.type) {
+    case "FILTER_BY_CATEGORY":
+      return {
+        ...state,
+        filter_products_category: action.payload,
+      };
+    case "FILTER_BY_FORMATS":
+      return {
+        ...state,
+        filter_products_formats: action.payload,
+      };
+    case "CLEAR_FILTERS":
+      return {
+        filter_products_category: [],
+        filter_products_formats: [],
+      };
+
     default:
       return state;
   }

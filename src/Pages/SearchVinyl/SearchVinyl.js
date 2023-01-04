@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import DataList from "../../Component/DataList/DataList";
+import FilterSearch from "../../Component/FilterSearch";
 import Loading from "../../Component/Loading";
+import PaginationCustom from "../../Component/Pagination/PaginationCustom";
 import SearchResults from "../../Component/SearchResults/SearchResults";
 import { useGlobalContext } from "../../context/Context";
 import "./searchVinyl.css";
@@ -12,10 +13,26 @@ const DISCOGS_URL = process.env.REACT_APP_DISCOGS_URL;
 const DISCOGS_KEY = process.env.REACT_APP_DISCOGS_KEY;
 
 const SearchVinyl = () => {
-  const { searchVinylResults, loading, error, dispatch } = useGlobalContext();
+  const {
+    searchVinylResults,
+    loading,
+    dispatch,
+    filterState: { filter_products_formats, filter_products_category },
+    filterDispatch,
+    filterState,
+  } = useGlobalContext();
 
+  // search query
   const [query, setQuery] = useState("");
 
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [vinylPostsPerPage, setVinylPostsPerPage] = useState(10);
+  const lastPostIndex = currentPage * vinylPostsPerPage;
+  const firstPostIndex = lastPostIndex - vinylPostsPerPage;
+  const currentPosts = searchVinylResults.slice(firstPostIndex, lastPostIndex);
+
+  // api call
   const searchData = async () => {
     try {
       const response = await axios(
@@ -26,7 +43,8 @@ const SearchVinyl = () => {
       if (data) {
         dispatch({ type: "SEARCH_VINYL_DATA", payload: data });
       }
-      // console.log(response.data.results);
+
+      // console.log(response.data.result);
     } catch (err) {
       const message = err.message;
       dispatch({ type: "FETCH_ERROR", payload: message });
@@ -49,51 +67,51 @@ const SearchVinyl = () => {
     }
   };
 
+  const newOne = (data, property) => {
+    let newVal = data.map((cuElem) => {
+      return cuElem[property][1];
+    });
+    // console.log(newVal);
+    return (newVal = ["All", ...new Set(newVal)]);
+    // console.log(newVal);
+  };
+
+  const categoryOnlyData = newOne(searchVinylResults, "format");
+
   useEffect(() => {
     searchData();
-  }, [dispatch]);
+  }, [
+    dispatch,
+    filterDispatch,
+    filter_products_category,
+    filter_products_formats,
+  ]);
 
   return (
     <div className="search-vinyl-container">
       <div className="left">
-        <div className="filterItem">
-          <h6>Genres</h6>
-          <Form.Check type="checkbox" id="1" value={1} label="Reggae" />
-          <Form.Check type="checkbox" id="2" value={2} label="Dancehall" />
-          <Form.Check type="checkbox" id="3" value={3} label="Digital" />
-          <Form.Check type="checkbox" id="4" value={4} label="Dub" />
-          <Form.Check type="checkbox" id="5" value={5} label="Rocksteady" />
-        </div>
-        <div className="filterItem">
-          <h6>Formats</h6>
-          <Form.Check type="checkbox" id="1" value={1} label="7 Inch" />
-          <Form.Check type="checkbox" id="2" value={2} label="LP" />
-          <Form.Check type="checkbox" id="3" value={3} label="12 Inch" />
-        </div>
-        {/* 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Button variant="success">Clear Filters</Button>
-        </div> */}
+        <FilterSearch currentPosts={currentPosts} />
       </div>
       <div className="right">
         <div className="search-vinyl-input">
-          <form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Search artists, albums..."
               onChange={handleInput}
               value={query}
             />
-          </form>
+          </Form>
         </div>
         <div>
-          {loading ? <Loading /> : <SearchResults data={searchVinylResults} />}
+          {loading ? <Loading /> : <SearchResults data={currentPosts} />}
+
+          <PaginationCustom
+            totalVinylPosts={searchVinylResults.length}
+            vinylPostsPerPage={vinylPostsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
         </div>
       </div>
     </div>

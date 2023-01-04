@@ -19,8 +19,8 @@ const DataList = ({ data }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToShow: 5,
+    slidesToScroll: 3,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
     responsive: [
@@ -42,7 +42,7 @@ const DataList = ({ data }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -51,22 +51,21 @@ const DataList = ({ data }) => {
 
   return (
     <>
-      <div className="cardList">
-        <Slider {...settings}>
-          {data.map((item, i) => {
-            return (
-              <DataCard
-                key={i}
-                image={item.cover_image ? item.cover_image : noImage}
-                title={item.title}
-                label={item.label[0]}
-                id={item.id}
-                item={item}
-              />
-            );
-          })}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {data.map((item, i) => {
+          return (
+            <DataCard
+              key={i}
+              image={item.cover_image ? item.cover_image : noImage}
+              title={item.title}
+              label={item.label[0]}
+              id={item.id}
+              format={item.format[1]}
+              country={item.country}
+            />
+          );
+        })}
+      </Slider>
     </>
   );
 };

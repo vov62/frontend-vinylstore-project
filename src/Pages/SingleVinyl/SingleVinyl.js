@@ -61,7 +61,7 @@ const SingleVinyl = () => {
 
   useEffect(() => {
     fetchSingleVinyl();
-  }, []);
+  }, [dispatch]);
 
   const {
     released,
@@ -71,6 +71,8 @@ const SingleVinyl = () => {
     num_for_sale,
     lowest_price,
     genres,
+    styles,
+    labels,
   } = singleVinyl;
 
   const goBack = () => {
@@ -86,105 +88,118 @@ const SingleVinyl = () => {
         </div>
       </div>
       {error && <Error variant="danger">{error}</Error>}
-      {loading && <Loading />}
-      <div className="data-container">
-        <div className="vinyl-details">
-          <div className="vinyl-img">
-            <Carousel className="vinyl-img-carousel" showIndicators={false}>
-              {imgDesc.map((item, i) => (
-                <img
-                  key={i}
-                  src={item.resource_url ? item.resource_url : noImage}
-                  alt="vinyl"
-                />
-              ))}
-            </Carousel>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="data-container">
+          <div className="vinyl-details">
+            <div className="vinyl-img">
+              <Carousel className="vinyl-img-carousel" showIndicators={false}>
+                {imgDesc.map((item, i) => (
+                  <img
+                    key={i}
+                    src={item.resource_url ? item.resource_url : noImage}
+                    alt="vinyl"
+                  />
+                ))}
+              </Carousel>
+            </div>
           </div>
-        </div>
 
-        <div className="vinyl-content">
-          <h1>{title}</h1>
-          <p>
-            {format} | {genres}
-          </p>
-          <h4 style={{ color: "yellowgreen" }}>
-            &euro;
-            {lowest_price && lowest_price > 1
-              ? lowest_price.toString().split(".")[0]
-              : "not in stock"}
-          </h4>
-          <hr />
-          <h4> {artists_sort}</h4>
-          <h4> {country}</h4>
-          <h4> {released ? released : "unknown"}</h4>
-          <h4>{num_for_sale ? `${num_for_sale} for sale` : "not in stock"}</h4>
-
-          {wishlist.some((v) => v.id === singleVinyl.id) ? (
-            <button
-              className="wishlist-btn"
-              style={{ border: "none" }}
-              onClick={() => {
-                // console.log(singleVinyl);
-                dispatch({
-                  type: "REMOVE_FROM_WISHLIST",
-                  payload: singleVinyl,
-                });
+          <div className="vinyl-content">
+            <h1>{title}</h1>
+            <p>
+              {format} | {styles ? styles : genres} |{" "}
+              {labels ? labels[0].name : null}
+            </p>
+            <h4
+              style={{
+                color: "yellowgreen",
               }}
             >
-              {num_for_sale ? <AiFillHeart size={"25px"} fill="red" /> : null}
-            </button>
-          ) : (
-            <button
-              className="wishlist-btn"
-              style={{ border: "none" }}
-              onClick={() => {
-                dispatch({
-                  type: "ADD_TO_WISHLIST",
-                  payload: singleVinyl,
-                });
-              }}
-            >
-              <BsHeart size={"22px"} fill="#000" />
-            </button>
-          )}
+              &euro;
+              {lowest_price > 1
+                ? lowest_price.toString().split(".")[0]
+                : !num_for_sale
+                ? "not in stock"
+                : lowest_price}
+            </h4>
+            <hr />
+            <h4> {artists_sort}</h4>
+            <h4> {country}</h4>
+            <h4> {released ? released : "unknown"}</h4>
+            <h4>
+              {num_for_sale ? `${num_for_sale} for sale` : "not in stock"}
+            </h4>
 
-          <hr />
-          <div>
-            {cart.some((v) => v.id === singleVinyl.id) ? (
+            {wishlist.some((v) => v.id === singleVinyl.id) ? (
               <button
-                className="removeCard-btn"
+                className="wishlist-btn"
+                style={{ border: "none" }}
                 onClick={() => {
                   dispatch({
-                    type: "REMOVE_FROM_CART",
+                    type: "REMOVE_FROM_WISHLIST",
                     payload: singleVinyl,
                   });
                 }}
               >
-                <span style={{ marginRight: "3px" }}>
-                  <FaShoppingCart fontSize="18px" />
-                </span>
-                Remove from Cart
+                {num_for_sale ? <AiFillHeart size={"25px"} fill="red" /> : null}
               </button>
             ) : (
               <button
-                disabled={!num_for_sale}
-                className="btn-btn "
+                className="wishlist-btn"
+                style={{ border: "none" }}
                 onClick={() => {
                   dispatch({
-                    type: "ADD_TO_CART",
+                    type: "ADD_TO_WISHLIST",
                     payload: singleVinyl,
                   });
                 }}
               >
-                <span style={{ marginRight: "3px" }}>
-                  <FaShoppingCart fontSize="18px" />
-                </span>
-                Add To Cart
+                <BsHeart size={"22px"} fill="#000" />
               </button>
             )}
+
+            <hr />
+            <div>
+              {cart.some((v) => v.id === singleVinyl.id) ? (
+                <button
+                  className="removeCard-btn"
+                  onClick={() => {
+                    dispatch({
+                      type: "REMOVE_FROM_CART",
+                      payload: singleVinyl,
+                    });
+                  }}
+                >
+                  <span style={{ marginRight: "3px" }}>
+                    <FaShoppingCart fontSize="18px" />
+                  </span>
+                  Remove from Cart
+                </button>
+              ) : (
+                <button
+                  disabled={!num_for_sale}
+                  className={`btn-btn ${
+                    !num_for_sale ? "disabled-btn" : "btn-btn"
+                  }`}
+                  onClick={() => {
+                    dispatch({
+                      type: "ADD_TO_CART",
+                      payload: singleVinyl,
+                    });
+                  }}
+                >
+                  <span style={{ marginRight: "3px" }}>
+                    <FaShoppingCart fontSize="18px" />
+                  </span>
+                  Add To Cart
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <div>
         <TrackList trackList={trackList} video={video} />
       </div>

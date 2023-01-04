@@ -15,14 +15,14 @@
     /* height: 20px; */
 }
 
-.slick-slide>div {
+/* .slick-slide>div {
     margin: 0 10px;
 }
 
 .slick-list {
     margin: 0 10px;
 
-}
+} */
 
 /* media */
 @media only screen and (max-width: 576px) {
@@ -30,15 +30,15 @@
     .cardList {
         /* background-color: red; */
         /* padding: 100%; */
-        margin-left: 5px;
+        /* margin-left: 5px; */
     }
 
     .slick-arrow.slick-prev {
-        left: 0;
+        /* left: 0; */
     }
 
     .slick-arrow.slick-next {
-        right: 0;
+        /* right: 0; */
     }
 
 }

@@ -10,9 +10,8 @@ import noImage from "../assets/no image.jpeg";
 import VinylModal from "./VinylModal";
 
 const Header = () => {
-  const { cart, dispatch, singleVinyl, wishlist } = useGlobalContext();
+  const { cart, dispatch, wishlist } = useGlobalContext();
   const [expanded, setExpanded] = useState(false);
-
   // modal
   const [modalShow, setModalShow] = useState(false);
 
@@ -26,10 +25,10 @@ const Header = () => {
         // bg='dark'
         style={{
           backgroundColor: "#252525",
-          // backgroundColor: '#000',
+          // backgroundColor: "#750000",
 
           color: "#fff",
-          // opacity: 0.8
+          // opacity: 0.8,
         }}
       >
         <Container fluid>
@@ -48,6 +47,7 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
+                className="nav-li active"
                 as={Link}
                 to="/"
                 onClick={() =>
@@ -60,6 +60,20 @@ const Header = () => {
               </Nav.Link>
 
               <Nav.Link
+                className="nav-li"
+                as={Link}
+                to="/about-us"
+                onClick={() =>
+                  setTimeout(() => {
+                    setExpanded(false);
+                  }, 150)
+                }
+              >
+                About Us
+              </Nav.Link>
+
+              <Nav.Link
+                className="nav-li"
                 as={Link}
                 to="/SearchVinyl"
                 onClick={() =>
@@ -71,6 +85,7 @@ const Header = () => {
                 Store
               </Nav.Link>
             </Nav>
+            {/* wishlist section */}
             <Nav>
               <Nav.Link onClick={() => setModalShow(true)}>
                 <span>
@@ -95,6 +110,7 @@ const Header = () => {
                 Wishlist
               </Nav.Link>
 
+              {/* Cart section */}
               <Dropdown align="end">
                 <Dropdown.Toggle variant="dark">
                   <FaShoppingCart fontSize="20px" />
@@ -163,6 +179,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      {/* Modal section */}
       {modalShow === true ? (
         <VinylModal show={modalShow} onHide={() => setModalShow(false)} />
       ) : null}

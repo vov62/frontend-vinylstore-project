@@ -2,6 +2,7 @@ import Header from "./Component/Header";
 import Footer from "./Component/Footer/Footer";
 import Cart from "./Pages/Cart/Cart";
 import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
 import SearchVinyl from "./Pages/SearchVinyl/SearchVinyl";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SingleVinyl from "./Pages/SingleVinyl/SingleVinyl";
@@ -14,7 +15,6 @@ const App = () => {
     <Router>
       <ScrollToTop />
       <Header />
-
       <main style={{ minHeight: "100vh" }}>
         <Routes>
           <Route path="*" element={<NotFoundPage />} />
@@ -22,6 +22,7 @@ const App = () => {
           <Route path="/SearchVinyl" element={<SearchVinyl />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/vinyl/:id" element={<SingleVinyl />} />
+          <Route path="/about-us" element={<About />} />
         </Routes>
       </main>
       <Footer />

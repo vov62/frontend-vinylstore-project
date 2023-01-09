@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context/Context";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../Component/Loading";
 import Error from "../../Component/Error";
 import axios from "axios";
@@ -37,12 +37,12 @@ const SingleVinyl = () => {
           Authorization: `Discogs token=${DISCOGS_KEY}`,
         },
       });
-      const data = response.data;
+      const data = response?.data;
 
-      if (data) {
-        dispatch({ type: "FETCH_SINGLE_VINYL", payload: data });
-        setTrackList(data.tracklist);
-      }
+      dispatch({ type: "FETCH_SINGLE_VINYL", payload: data });
+
+      setTrackList(data.tracklist);
+
       if (data.images) {
         setImgDesc(data.images);
       }
@@ -95,7 +95,7 @@ const SingleVinyl = () => {
           <div className="vinyl-details">
             <div className="vinyl-img">
               <Carousel className="vinyl-img-carousel" showIndicators={false}>
-                {imgDesc.map((item, i) => (
+                {imgDesc?.map((item, i) => (
                   <img
                     key={i}
                     src={item.resource_url ? item.resource_url : noImage}
@@ -125,16 +125,24 @@ const SingleVinyl = () => {
                 : lowest_price}
             </h4>
             <hr />
-            <h4> {artists_sort}</h4>
-            <h4> {country}</h4>
-            <h4> {released ? released : "unknown"}</h4>
             <h4>
+              <strong> artists:</strong> {artists_sort ?? "unknown"}
+            </h4>
+            <h4>
+              <strong>country:</strong> {country ?? "unknown"}
+            </h4>
+            <h4>
+              <strong>year:</strong> {released ?? "unknown"}
+            </h4>
+            <h4>
+              <strong>for sale: </strong>
               {num_for_sale ? `${num_for_sale} for sale` : "not in stock"}
             </h4>
 
             {wishlist.some((v) => v.id === singleVinyl.id) ? (
               <button
                 className="wishlist-btn"
+                disabled={!num_for_sale}
                 style={{ border: "none" }}
                 onClick={() => {
                   dispatch({
@@ -143,11 +151,14 @@ const SingleVinyl = () => {
                   });
                 }}
               >
-                {num_for_sale ? <AiFillHeart size={"25px"} fill="red" /> : null}
+                <AiFillHeart size={"25px"} fill="red" />
               </button>
             ) : (
               <button
-                className="wishlist-btn"
+                disabled={!num_for_sale}
+                className={`wishlist-btn ${
+                  !num_for_sale ? "disabled-btn" : "wishlist-btn"
+                }`}
                 style={{ border: "none" }}
                 onClick={() => {
                   dispatch({

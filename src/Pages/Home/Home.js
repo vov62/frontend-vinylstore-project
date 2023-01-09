@@ -4,6 +4,7 @@ import Hits from "../../Component/Hits-section/Hits";
 import DubSection from "../../Component/DubSection/DubSection";
 import DancehallSection from "../../Component/DancehallSection";
 import "./Home.css";
+import TurnTableSection from "./../../TurnTableSection";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <Hits />
       <DubSection />
       <DancehallSection />
+      <TurnTableSection />
     </div>
   );
 };

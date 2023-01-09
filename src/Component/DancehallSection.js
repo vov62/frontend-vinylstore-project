@@ -24,7 +24,7 @@ const DancehallSection = () => {
         <div className="vinyl-selection-list">
           <DataList data={dancehallData} />
           <div className="vinyl-link">
-            <Link to="/search">More Dancehall Hits &gt;</Link>
+            <Link to="/SearchVinyl">More Dancehall Hits &gt;</Link>
           </div>
         </div>
       </div>

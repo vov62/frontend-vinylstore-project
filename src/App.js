@@ -9,6 +9,8 @@ import SingleVinyl from "./Pages/SingleVinyl/SingleVinyl";
 import ScrollToTop from "./hooks/ScrollToTop ";
 import { NotFoundPage } from "./Pages/NotFoundPage";
 import "./App.css";
+import Header2 from "./Component/Header2";
+import SingleTurnTable from "./Pages/SingleTurnTable/SingleTurnTable";
 
 const App = () => {
   return (
@@ -22,6 +24,7 @@ const App = () => {
           <Route path="/SearchVinyl" element={<SearchVinyl />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/vinyl/:id" element={<SingleVinyl />} />
+          <Route path="/turnTable/:id" element={<SingleTurnTable />} />
           <Route path="/about-us" element={<About />} />
         </Routes>
       </main>

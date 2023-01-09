@@ -23,7 +23,7 @@ const Hits = () => {
         <div className="vinyl-selection-list">
           <DataList data={data} />
           <div className="vinyl-link">
-            <Link to="/search">Search more hits &gt;</Link>
+            <Link to="/SearchVinyl">Search more hits &gt;</Link>
           </div>
         </div>
       </div>

@@ -7,8 +7,6 @@ import { useGlobalContext } from "../../context/Context";
 import ErrorMessage from "../Error";
 import Loading from "../Loading";
 import "./searchResults.css";
-import PaginationCustom from "./../Pagination/PaginationCustom";
-import DataCard from "../DataCard/DataCard";
 
 const SearchResults = ({ data }) => {
   const {

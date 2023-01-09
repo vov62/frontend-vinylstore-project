@@ -8,10 +8,10 @@ import { useGlobalContext } from "../context/Context";
 import { Button } from "react-bootstrap";
 import noImage from "../assets/no image.jpeg";
 import VinylModal from "./VinylModal";
-import img from "../assets/second vinyl.json";
+import img from "../assets/lf30_editor_jnnaxciy.json";
 import Lottie from "lottie-react";
 
-const Header = () => {
+const Header2 = () => {
   const { cart, dispatch, wishlist } = useGlobalContext();
   const [expanded, setExpanded] = useState(false);
   // modal
@@ -34,7 +34,7 @@ const Header = () => {
         }}
       >
         <Container fluid>
-          <div style={{ width: "75px", marginRight: "8px" }}>
+          <div style={{ width: "75px" }}>
             <Lottie animationData={img} />
           </div>
           <Navbar.Brand>
@@ -88,7 +88,7 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             {/* wishlist section */}
-            <Nav>
+            <Nav style={{ display: "flex", flexDirection: "row" }}>
               <Nav.Link onClick={() => setModalShow(true)}>
                 <span>
                   {wishlist.length > 0 ? (
@@ -189,10 +189,4 @@ const Header = () => {
   );
 };
 
-{
-  /* <div style={{ width: "100px" }}>
-              <Lottie animationData={img} />
-            </div> */
-}
-
-export default Header;
+export default Header2;

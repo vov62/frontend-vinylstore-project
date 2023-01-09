@@ -23,7 +23,7 @@ const Labels = () => {
         <div className="vinyl-selection-list">
           <DataList data={dubData} />
           <div className="vinyl-link">
-            <Link to="/search">More Dub Hits &gt;</Link>
+            <Link to="/SearchVinyl">More Dub Hits &gt;</Link>
           </div>
         </div>
       </div>

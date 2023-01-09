@@ -1,0 +1,67 @@
+.grid-wrapper-card {
+    /* border: 1px solid blue; */
+    /* background-color: aqua; */
+    max-width: 230px;
+    /* max-height: 250px; */
+    position: relative;
+}
+
+.grid-image-img {
+    box-shadow: 2px 1px 3px 0.3px;
+    transition: all .3s ease;
+
+
+}
+
+.grid-image-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-details {
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+
+    /* position: absolute; */
+    /* bottom: 0; */
+    font-size: 14px;
+    background-color: yellow;
+    background: rgba(27, 27, 27, .5);
+    color: #fff;
+    /* width: 100%; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    /* opacity: 0; */
+}
+
+.grid-title {
+    /* display: inline-block; */
+    /* opacity: -1; */
+    /* width: 100%; */
+
+    /* right: -50%; */
+    /* opacity: -1; */
+    /* padding: 0 5px; */
+    /* flex: 1; */
+    /* padding: 16px 32px; */
+
+}
+
+.grid-wrapper:hover .grid-details {
+    /* opacity: 1; */
+}
+
+.grid-details span {
+    color: #2e2e2e;
+    font-weight: 600;
+}
+
+.grid-wrapper-card:hover .grid-image-img {
+    /* transform: rotate(2deg); */
+    box-shadow: 2px 1px 8px 0.3px;
+    cursor: pointer;
+}

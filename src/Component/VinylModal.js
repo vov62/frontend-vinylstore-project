@@ -45,7 +45,6 @@ const VinylModal = (props) => {
                       </div>
                       <Button
                         variant="dark"
-                        className="wishlist-btn"
                         style={{ border: "none" }}
                         onClick={() => {
                           dispatch({

@@ -1,0 +1,60 @@
+.NewsLetter {
+    background-color: #474554;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+    margin: 20px 0;
+}
+
+.NewsLetter h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.NewsLetter p {
+    font-size: 14px;
+    color: #f1f1f1;
+}
+
+.NewsLetter p span {
+    color: #fec400;
+}
+
+.NewsLetter .form {
+    display: flex;
+    width: 40%;
+}
+
+.NewsLetter input {
+    height: 50px;
+    padding: 0 20px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+}
+
+.NewsLetter button {
+    background-color: #088178;
+    color: #fff;
+    white-space: nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 0px 12px;
+    border: 1px solid transparent;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .NewsLetter {
+        padding: 40px 30px;
+    }
+
+    .NewsLetter .form {
+        width: 100%;
+    }
+}

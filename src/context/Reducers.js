@@ -4,6 +4,7 @@ export const initialState = {
   data: [],
   dubData: [],
   dancehallData: [],
+  skaData: [],
   singleVinyl: [],
   cart: [],
   wishlist: [],
@@ -40,6 +41,13 @@ export const fetchDataReducer = (state, action) => {
         ...state,
         loading: false,
         dancehallData: action.payload,
+        error: "",
+      };
+    case "FETCH_SKA_STYLE":
+      return {
+        ...state,
+        loading: false,
+        skaData: action.payload,
         error: "",
       };
     case "FETCH_SINGLE_VINYL":

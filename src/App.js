@@ -8,15 +8,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SingleVinyl from "./Pages/SingleVinyl/SingleVinyl";
 import ScrollToTop from "./hooks/ScrollToTop ";
 import { NotFoundPage } from "./Pages/NotFoundPage";
-import "./App.css";
-import Header2 from "./Component/Header2";
+import Header2 from "./Component/Header2/Header2";
 import SingleTurnTable from "./Pages/SingleTurnTable/SingleTurnTable";
+import NewsLetter from "./Component/NewsLetter/NewsLetter";
+import "./App.css";
 
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <Header />
+      <header>
+        <Header2 />
+      </header>
       <main style={{ minHeight: "100vh" }}>
         <Routes>
           <Route path="*" element={<NotFoundPage />} />
@@ -28,6 +31,7 @@ const App = () => {
           <Route path="/about-us" element={<About />} />
         </Routes>
       </main>
+      <NewsLetter />
       <Footer />
     </Router>
   );

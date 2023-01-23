@@ -4,32 +4,30 @@
     /* gap: 8px; */
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin: 40px 0;
+    /* border: 1px solid #000; */
 }
 
 .pagination-container button {
-    width: 28px;
-    height: 25px;
-    font-family: inherit;
-    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    font-weight: 500;
     font-size: 15px;
-    margin: 0 5px;
-    border-radius: 6px;
+    padding: 6px 22px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: transparent;
-    color: #101010;
-    background-color: #ffe400;
-    border-color: #eee;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.pagination-container button:hover {
+    background-color: #ddd;
 }
 
 .pagination-container button.active {
     font-weight: 900;
-    border-color: #101010;
-    background: #fff;
-    color: #101010;
-}
-
-button.arrow-btn {
-    border: none;
+    background: #ffe400;
 }

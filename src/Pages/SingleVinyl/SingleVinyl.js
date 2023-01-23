@@ -8,9 +8,9 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Carousel } from "react-responsive-carousel";
 import TrackList from "../../Component/TrackList/TrackList";
 import noImage from "../../assets/no image.jpeg";
-import { BsHeart } from "react-icons/bs";
-import { FaShoppingCart } from "react-icons/fa";
-import { AiFillHeart } from "react-icons/ai";
+import { BsHeart, BsFillShieldFill } from "react-icons/bs";
+import { FaShoppingCart, FaShippingFast } from "react-icons/fa";
+import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import "./singleVinyl.css";
 
 const DISCOGS_URL = process.env.REACT_APP_DISCOGS_URL;
@@ -22,7 +22,6 @@ const SingleVinyl = () => {
   // console.log(id);
   const [trackList, setTrackList] = useState([]);
   const [imgDesc, setImgDesc] = useState([]);
-  // const [quantity, setQuantity] = useState(1);
   const [format, setFormat] = useState();
   const [video, setVideos] = useState([]);
 
@@ -73,8 +72,11 @@ const SingleVinyl = () => {
     genres,
     styles,
     labels,
+    community,
+    notes,
   } = singleVinyl;
 
+  // go back btn to previous page
   const goBack = () => {
     navigate(-1);
   };
@@ -107,75 +109,66 @@ const SingleVinyl = () => {
           </div>
 
           <div className="vinyl-content">
-            <h1>{title}</h1>
-            <p>
+            <div className="vinyl-content-title">
+              <h3>{title}</h3>
+              <h4>
+                <span>
+                  <AiFillStar style={{ color: "rgb(255, 215, 0)" }} size={25} />
+                </span>
+                <strong>{community?.rating.average}</strong>
+              </h4>
+            </div>
+
+            <p style={{ color: "#7a7a7a" }}>
               {format} | {styles ? styles : genres} |{" "}
               {labels ? labels[0].name : null}
             </p>
-            <h4
+            <h3
               style={{
-                color: "yellowgreen",
+                fontWeight: "bold",
               }}
             >
-              &euro;
+              Price: &euro;
               {lowest_price > 1
                 ? lowest_price.toString().split(".")[0]
                 : !num_for_sale
-                ? "not in stock"
+                ? "Out Of Stock"
                 : lowest_price}
-            </h4>
+            </h3>
             <hr />
             <h4>
-              <strong> artists:</strong> {artists_sort ?? "unknown"}
+              <strong> artists: </strong>
+              <span>{artists_sort ?? "unknown"}</span>
             </h4>
             <h4>
-              <strong>country:</strong> {country ?? "unknown"}
+              <strong>country:</strong>
+              <span> {country ?? "unknown"}</span>
             </h4>
             <h4>
-              <strong>year:</strong> {released ?? "unknown"}
+              <strong>year:</strong> <span>{released ?? "unknown"}</span>
             </h4>
             <h4>
               <strong>for sale: </strong>
-              {num_for_sale ? `${num_for_sale} for sale` : "not in stock"}
+              <span
+                className={`price-stock ${
+                  num_for_sale ? "inStock" : "notInStock"
+                }`}
+              >
+                {num_for_sale ? `${num_for_sale} In Stock` : "Out of Stock!"}
+              </span>
             </h4>
 
-            {wishlist.some((v) => v.id === singleVinyl.id) ? (
-              <button
-                className="wishlist-btn"
-                disabled={!num_for_sale}
-                style={{ border: "none" }}
-                onClick={() => {
-                  dispatch({
-                    type: "REMOVE_FROM_WISHLIST",
-                    payload: singleVinyl,
-                  });
-                }}
-              >
-                <AiFillHeart size={"25px"} fill="red" />
-              </button>
-            ) : (
-              <button
-                disabled={!num_for_sale}
-                className={`wishlist-btn ${
-                  !num_for_sale ? "disabled-btn" : "wishlist-btn"
-                }`}
-                style={{ border: "none" }}
-                onClick={() => {
-                  dispatch({
-                    type: "ADD_TO_WISHLIST",
-                    payload: singleVinyl,
-                  });
-                }}
-              >
-                <BsHeart size={"22px"} fill="#000" />
-              </button>
-            )}
+            <div className="vinyl-content-notes" style={{ marginTop: "10px" }}>
+              <strong>Notes:</strong>
+              <p>{notes ? notes : "No Description"}</p>
+            </div>
 
             <hr />
+            {/* add to Cart btn */}
             <div>
               {cart.some((v) => v.id === singleVinyl.id) ? (
                 <button
-                  className="removeCard-btn"
+                  className="btn-btn remove-Cart-btn"
                   onClick={() => {
                     dispatch({
                       type: "REMOVE_FROM_CART",
@@ -207,6 +200,72 @@ const SingleVinyl = () => {
                   Add To Cart
                 </button>
               )}
+            </div>
+
+            {/* wishlist btn */}
+            {wishlist.some((v) => v.id === singleVinyl.id) ? (
+              <button
+                className="btn-btn remove-wishlist-btn"
+                disabled={!num_for_sale}
+                style={{ border: "none" }}
+                onClick={() => {
+                  dispatch({
+                    type: "REMOVE_FROM_WISHLIST",
+                    payload: singleVinyl,
+                  });
+                }}
+              >
+                <span style={{ marginRight: "2px" }}>
+                  <AiFillHeart size={25} fill="red" />
+                </span>
+                Remove From Wishlist
+              </button>
+            ) : (
+              <button
+                disabled={!num_for_sale}
+                className={`btn-btn add-wishlist-btn ${
+                  !num_for_sale ? "disabled-btn" : "btn-btn-wishlist"
+                }`}
+                style={{ border: "none" }}
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_WISHLIST",
+                    payload: singleVinyl,
+                  });
+                }}
+              >
+                <span style={{ marginRight: "3px" }}>
+                  <BsHeart size={22} fill="#000" />
+                </span>
+                Add To Wishlist
+              </button>
+            )}
+
+            {/* free shipping, return policy */}
+            <div className="shipping-policy">
+              <div className="shipping-wrapper">
+                <div className="shipping">
+                  <FaShippingFast
+                    style={{ color: "rgb(0, 163, 108)" }}
+                    size={22}
+                  />
+                  <span>Free Shipping</span>
+                  <p>Free flat rate shipping on orders over &euro; 20.</p>
+                </div>
+                <div className="return-policy">
+                  <BsFillShieldFill
+                    style={{ color: "rgb(0, 163, 108)" }}
+                    size={22}
+                  />
+                  <span>Return Policy</span>
+                  <p>
+                    1. Items must be received within 60 days from the purchase
+                    date.
+                    <br />
+                    2. Items must be received undamaged and in original package.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

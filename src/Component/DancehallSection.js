@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Context";
 import DataList from "./DataList/DataList";
 import Loading from "./Loading";
-import Error from "../Component/Error";
 import ErrorMessage from "./Error";
 
 const DancehallSection = () => {

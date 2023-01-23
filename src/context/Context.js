@@ -67,11 +67,26 @@ const AppProvider = ({ children }) => {
       dispatch({ type: "FETCH_ERROR", payload: err.message });
     }
   };
+  const fetchSkaData = async () => {
+    try {
+      const response = await axios(
+        `${DISCOGS_URL}/database/search?&style=ska&format=vinyl&token=${DISCOGS_KEY}`
+      );
+      const data = response.data.results;
+      if (data) {
+        dispatch({ type: "FETCH_SKA_STYLE", payload: data });
+      }
+      // console.log(response.data);
+    } catch (err) {
+      dispatch({ type: "FETCH_ERROR", payload: err.message });
+    }
+  };
 
   useEffect(() => {
     fetchData();
     fetchDubData();
     fetchDancehallData();
+    fetchSkaData();
   }, []);
 
   return (

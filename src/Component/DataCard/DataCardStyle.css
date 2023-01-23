@@ -33,11 +33,6 @@
     object-fit: cover;
 }
 
-.card-img-top:hover {
-    /* transition: all .2s ease;
-    transform: scale(1.1); */
-}
-
 .card-text {
     padding: 2px;
     margin: 2px 0;
@@ -51,7 +46,6 @@
 
 .card-body>span {
     font-size: 12px;
-    /* font-weight: 400; */
     margin-top: 20px;
     display: flex;
     justify-content: center;
@@ -60,7 +54,6 @@
 
 .card-text:hover {
     text-decoration: underline;
-    /* text-decoration-color: #eee; */
     text-decoration-color: #333;
 }
 

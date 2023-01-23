@@ -1,10 +1,10 @@
 import React from "react";
 import DataCard from "../DataCard/DataCard";
-import "./DataListStyle.css";
 import Slider from "react-slick";
 import leftArrow from "../../assets/lerft-arrow.svg";
 import rightArrow from "../../assets/right-arrow.svg";
 import noImage from "../../assets/no image.jpeg";
+import "./DataListStyle.css";
 
 const DataList = ({ data }) => {
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (

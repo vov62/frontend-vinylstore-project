@@ -1,0 +1,122 @@
+.main-navbar {
+    width: 100%;
+    background-color: #eef2f3;
+}
+
+.sub-main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.sub-main-navbar h1 {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.left-navbar svg {
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.left-navbar {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-icon {
+    display: none;
+    cursor: pointer;
+}
+
+
+.links-ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10vw;
+    margin: 0;
+    background-color: #5d5d5d;
+    color: #fff;
+}
+
+.links-ul .link-item a {
+    text-transform: capitalize;
+    padding: 0 10px;
+    margin: 0 10px;
+    font-weight: 600;
+    transition: all .2s ease;
+
+}
+
+.links-ul .link-item:hover {
+    color: #000;
+}
+
+
+@media only screen and (max-width: 576px) {
+
+
+    .sub-main-navbar {
+        padding: 10px 8px;
+    }
+
+    .sub-main-navbar h1 {
+        font-size: 22px;
+    }
+
+    .hamburger-icon {
+        display: block;
+        padding-left: 10px;
+        margin-left: 10px;
+        padding-bottom: 10px;
+    }
+
+    .links-container {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .links-ul {
+        background-color: gray;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: absolute;
+        top: 0;
+        left: -200px;
+        height: 100vh;
+        width: 200px;
+        padding: 10px;
+        transition: .5s;
+    }
+
+    .links-ul.show {
+        left: 0;
+        /* width: 100%; */
+        opacity: 0.9;
+        /* padding: 10px; */
+        flex-direction: column;
+    }
+
+    .links-ul .link-item {
+        font-size: 18px;
+        margin-top: 10px;
+        text-align: center;
+        padding: 10px;
+
+        /* padding: 5px; */
+        margin-bottom: 25px;
+        transition: 0.3s;
+        /* border: 1px solid #fff; */
+        display: block;
+        border-bottom: 1px solid #eee;
+        width: 100%;
+
+    }
+
+}

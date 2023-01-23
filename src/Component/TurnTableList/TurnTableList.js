@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./turnTableList.css";
 
-const TurnTableList = ({ item, id }) => {
+const TurnTableList = ({ item, small_id }) => {
   return (
-    <Link to={`/turnTable/${id}`}>
-      <div className="grid-wrapper-card" key={id}>
+    <Link to={`/turnTable/${small_id}`}>
+      <div className="grid-wrapper-card">
         <div className="grid-image-img">
           <img src={item.imgLink} alt={item.title} />
           <div className="grid-details">

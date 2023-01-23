@@ -24,21 +24,29 @@ const Header = () => {
         expand="sm"
         expanded={expanded}
         variant="dark"
-        // bg='dark'
         style={{
           backgroundColor: "#252525",
-          // backgroundColor: "#750000",
-
           color: "#fff",
-          // opacity: 0.8,
         }}
       >
         <Container fluid>
-          <div style={{ width: "75px", marginRight: "8px" }}>
+          {/* <div style={{ width: "75px", marginRight: "8px" }}>
             <Lottie animationData={img} />
-          </div>
+          </div> */}
           <Navbar.Brand>
-            <Link to="/" onClick={() => setExpanded(false)}>
+            <Link
+              to="/"
+              onClick={() => setExpanded(false)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: "8px",
+              }}
+            >
+              <div style={{ width: "75px", marginRight: "8px" }}>
+                <Lottie animationData={img} />
+              </div>
               Vinyl-Store
             </Link>
           </Navbar.Brand>

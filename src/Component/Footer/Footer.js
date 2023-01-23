@@ -14,13 +14,13 @@ const Footer = () => {
             <h5> Information</h5>
             <ul>
               <li>
-                <a href="#">About us</a>
+                <a href="#*">About us</a>
               </li>
               <li>
-                <a href="#"> Contact Us </a>
+                <a href="#*"> Contact Us </a>
               </li>
               <li>
-                <a href="#"> Privacy Policy </a>
+                <a href="#*"> Privacy Policy </a>
               </li>
             </ul>
           </div>
@@ -29,13 +29,13 @@ const Footer = () => {
             <h5>Store</h5>
             <ul>
               <li>
-                <a href="#"> Terms and Conditions</a>
+                <a href="#*"> Terms and Conditions</a>
               </li>
               <li>
-                <a href="#"> Shipping And Payment</a>
+                <a href="#*"> Shipping And Payment</a>
               </li>
               <li>
-                <a href="#"> Return Policy</a>
+                <a href="#*"> Return Policy</a>
               </li>
             </ul>
           </div>
@@ -64,6 +64,19 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
+          </div>
+          <div className="footer-body">
+            <h5>Our App</h5>
+            <div className="imgOne">
+              <img
+                src="https://www.discogs.com/images/app/app-store-badge.svg"
+                alt="app-store-badge"
+              />
+              <img
+                src="https://www.discogs.com/images/app/google-play-badge.png"
+                alt="google-play-badge"
+              />
+            </div>
           </div>
         </div>
       </div>

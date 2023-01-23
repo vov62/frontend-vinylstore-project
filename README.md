@@ -32,6 +32,6 @@ run 'npm start' to run the project  :grinning:
 <img width="600" alt="vinyl project hero6" src="https://user-images.githubusercontent.com/71568364/214017778-ae8abc76-c124-4ffe-b7cb-197021405add.png">
 </br>
 </br>
-<img width="600" alt="vinyl project hero7" src="https://user-images.githubusercontent.com/71568364/214018063-1e5b333b-61c2-4088-9469-3a7132a552cd.png">
+<img width="300" alt="vinyl project hero7" src="https://user-images.githubusercontent.com/71568364/214018063-1e5b333b-61c2-4088-9469-3a7132a552cd.png">
 
 

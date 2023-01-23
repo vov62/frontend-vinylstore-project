@@ -1,7 +1,7 @@
 
 <h1>About The Project 🙋</h1>
 <h3>Frontend Reggae vinyl App store.</h3>
-:white_medium_small_square: A platform for Reagge music discovery and collection.</br>
+:white_medium_small_square: Responsive platform for Reagge music discovery and collection.</br>
 :white_medium_small_square: users can search for Reagge vinyl music and add them to the cart.
 </br>
 </br>

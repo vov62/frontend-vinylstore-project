@@ -222,11 +222,6 @@ a {
   text-align: center;
 }
 
-.modal-header {
-  /* border: 1px solid black; */
-  /* display: flex; */
-}
-
 .modal-header h1 {
   margin: 0 auto;
 }

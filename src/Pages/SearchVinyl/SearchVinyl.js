@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import FilterSearch from "../../Component/FilterSearch";
 import Loading from "../../Component/Loading";
 import PaginationCustom from "../../Component/Pagination/PaginationCustom";
 import SearchResults from "../../Component/SearchResults/SearchResults";
 import { useGlobalContext } from "../../context/Context";
+import { AiOutlineSearch } from "react-icons/ai";
 import "./searchVinyl.css";
 
 const DISCOGS_URL = process.env.REACT_APP_DISCOGS_URL;
@@ -19,7 +19,6 @@ const SearchVinyl = () => {
     dispatch,
     filterState: { filter_products_formats, filter_products_category },
     filterDispatch,
-    filterState,
   } = useGlobalContext();
 
   // search query
@@ -33,7 +32,7 @@ const SearchVinyl = () => {
   const currentPosts = searchVinylResults.slice(firstPostIndex, lastPostIndex);
 
   // api call
-  const searchData = async () => {
+  const vinylSearchData = async () => {
     try {
       const response = await axios(
         `${DISCOGS_URL}/database/search?&q=${query}&genre=reggae&format=vinyl&token=${DISCOGS_KEY}`
@@ -62,7 +61,7 @@ const SearchVinyl = () => {
       alert("Please enter a valid name");
       console.log("error");
     } else {
-      searchData();
+      vinylSearchData();
       setQuery("");
     }
   };
@@ -79,7 +78,7 @@ const SearchVinyl = () => {
   const categoryOnlyData = newOne(searchVinylResults, "format");
 
   useEffect(() => {
-    searchData();
+    vinylSearchData();
   }, [
     dispatch,
     filterDispatch,
@@ -101,6 +100,9 @@ const SearchVinyl = () => {
               onChange={handleInput}
               value={query}
             />
+            <button className="search-form-icon">
+              <AiOutlineSearch size={28} />
+            </button>
           </Form>
         </div>
         <div>

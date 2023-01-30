@@ -4,13 +4,13 @@
 }
 
 .left {
-    /* border: 1px solid black; */
-    background-color: #f1f1f1;
-    padding: 15px;
-    flex: 0.8;
+    flex: 0.5;
     position: sticky;
     max-height: 500px;
     top: 0;
+    text-align: left;
+    max-width: 200px;
+    border-right: 2px solid #ddd;
 }
 
 .filterItem {
@@ -20,9 +20,8 @@
 }
 
 .filterItem>h6 {
-    font-weight: 600;
+    font-weight: bold;
     margin: 12px 0;
-    text-align: center;
 }
 
 .filter-btn-list {
@@ -32,13 +31,27 @@
 
 .filter-btn {
     border: none;
+    margin-top: 5px;
+    text-align: left;
+    background-color: inherit;
     color: #000;
+
+
+}
+
+.filter-btn:hover {
+    border-left: 2px solid #dbb333;
 }
 
 .filter-btn.active {
-    /* background-color: aqua; */
-    color: #ccc999
+    padding-left: 8px;
+    border-left: 2px solid #dbb333;
+    color: #dbb333;
+    /* color: #000000e6; */
+    font-weight: 700;
+    /* color: #5a9e74; */
 }
+
 
 
 
@@ -49,17 +62,22 @@
 
 .right {
     flex: 3;
-    /* border: 1px solid black; */
     padding: 20px;
 
 }
 
 .search-vinyl-input {
-    /* border: 1px solid black; */
-    /* text-align: center; */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.search-vinyl-input form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
 }
 
 .search-vinyl-input input {
@@ -67,7 +85,18 @@
     border-radius: 10px;
     border: 1px solid black;
     outline: none;
+    display: flex;
 }
+
+.search-form-icon {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    border: inherit;
+    background-color: transparent;
+    color: inherit;
+}
+
 
 
 
@@ -80,9 +109,15 @@
 
     }
 
-    .left {
+    .search-form-icon {
+        top: 12px;
+    }
 
+    .left {
         position: unset;
+        flex: 1.5;
+        max-width: 100%;
+        padding: 20px 0;
     }
 
     .filterItem {
@@ -94,6 +129,18 @@
     .filter-btn-list {
         flex-direction: row;
 
+    }
+
+    .filter-btn {
+        background-color: #333333;
+        color: #fff;
+        margin-right: 5px;
+        border-radius: 5px;
+        padding: 10px 12px;
+    }
+
+    .filter-btn.active {
+        border-left: none;
     }
 
     .right {

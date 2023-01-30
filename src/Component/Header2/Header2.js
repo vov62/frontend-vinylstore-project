@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Navbar, Container, Nav, Dropdown, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import { BsHeart } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
 import { useGlobalContext } from "../../context/Context";
 import { Button } from "react-bootstrap";
 // import noImage from "../assets/no image.jpeg";
@@ -13,20 +14,54 @@ import Lottie from "lottie-react";
 import "./header2.css";
 
 const Header2 = () => {
+  // context
   const { cart, dispatch, wishlist } = useGlobalContext();
+  const menuRef = useRef();
+
+  // mobile menu
   const [mobileMenu, setMobileMenu] = useState(false);
+  // navbar background scroll
+  // const [navbarBackground, setNavbarBackground] = useState(false);
 
   // modal
   const [modalShow, setModalShow] = useState(false);
+
+  // change navbar color on scroll
+  // const changeBackground = () => {
+  //   if (window.scrollY >= 300) {
+  //     setNavbarBackground(true);
+  //   } else {
+  //     setNavbarBackground(false);
+  //   }
+  // };
+  // window.addEventListener("scroll", changeBackground);
+
+  // close menu when click outside the menu
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setMobileMenu(false);
+      }
+    };
+    document.body.addEventListener("mousedown", handler);
+
+    return () => document.body.removeEventListener("mousedown", handler);
+  }, []);
 
   return (
     <>
       <div className="main-navbar">
         <div className="sub-main-navbar">
+          <div className="hamburger-icon">
+            <GiHamburgerMenu
+              size={25}
+              onClick={() => setMobileMenu((prev) => !prev)}
+            />
+          </div>
           <div className="left-navbar">
             <Lottie animationData={img} />
             <Link to="/">
-              <h1>Vinyl-Store</h1>
+              <h1>Vov-Records</h1>
             </Link>
           </div>
 
@@ -52,7 +87,7 @@ const Header2 = () => {
                     />
                   )}
                 </span>
-                Wishlist
+                <span className="wishlist-Title">Wishlist</span>
               </Nav.Link>
 
               {/* Cart section */}
@@ -68,8 +103,8 @@ const Header2 = () => {
                   <Badge
                     bg="inherit"
                     style={{
-                      color: "#fff",
-                      backgroundColor: "#dc3545",
+                      color: "#000",
+                      // backgroundColor: "#dc3545",
                       fontSize: "12px",
                     }}
                   >
@@ -129,15 +164,13 @@ const Header2 = () => {
             </Nav>
           </div>
         </div>
-        <div className="hamburger-icon">
-          <GiHamburgerMenu
-            size={25}
-            onClick={() => setMobileMenu(!mobileMenu)}
-          />
-        </div>
 
-        <div className="links-container">
+        <div ref={menuRef} className="links-container">
           <ul className={`links-ul ${mobileMenu ? "show" : ""}`}>
+            <div className="mobile-menu-close-btn">
+              <GrClose size={25} onClick={() => setMobileMenu(false)} />
+            </div>
+
             <li className="link-item">
               <Link to="/">Home</Link>
             </li>
@@ -148,7 +181,7 @@ const Header2 = () => {
               <Link to="/about-us">About us</Link>
             </li>
             <li className="link-item">
-              <Link>Contact</Link>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>

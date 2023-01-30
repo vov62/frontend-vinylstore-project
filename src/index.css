@@ -164,17 +164,17 @@ a {
 }
 
 .slick-arrow.slick-next {
-  transform: scale(1.6);
+  transform: scale(2);
   right: 1px
 }
 
 .slick-arrow.slick-prev {
-  transform: scale(1.6);
+  transform: scale(2);
   left: 1px;
 }
 
 .slick-prev:hover {
-  opacity: 1;
+  opacity: 999;
 }
 
 .slick-next:hover {

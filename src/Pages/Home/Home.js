@@ -10,14 +10,18 @@ import HeroSection from "../../Component/Hero-section/HeroSection";
 
 const Home = () => {
   return (
-    <main>
-      <HeroSection />
-      <Hits />
-      <DubSection />
-      <DancehallSection />
-      <SkaSection />
-      <TurnTableSection />
-    </main>
+    <>
+      <header>
+        <HeroSection />
+      </header>
+      <main>
+        <Hits />
+        <DubSection />
+        <DancehallSection />
+        <SkaSection />
+        <TurnTableSection />
+      </main>
+    </>
   );
 };
 

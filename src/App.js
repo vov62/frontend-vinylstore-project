@@ -11,6 +11,7 @@ import { NotFoundPage } from "./Pages/NotFoundPage";
 import Header2 from "./Component/Header2/Header2";
 import SingleTurnTable from "./Pages/SingleTurnTable/SingleTurnTable";
 import NewsLetter from "./Component/NewsLetter/NewsLetter";
+import Contact from "./Pages/Contact/Contact";
 import "./App.css";
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
       <header>
         <Header2 />
       </header>
-      <main style={{ minHeight: "100vh" }}>
+      <main>
         <Routes>
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={<Home />} />
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/vinyl/:id" element={<SingleVinyl />} />
           <Route path="/turnTable/:id" element={<SingleTurnTable />} />
           <Route path="/about-us" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <NewsLetter />

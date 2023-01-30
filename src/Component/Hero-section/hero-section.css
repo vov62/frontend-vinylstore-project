@@ -1,8 +1,9 @@
 .hero-section {
-    width: 100%;
     height: calc(100vh - 80px);
+    background-color: gray;
     background-image: url('https://images.pexels.com/photos/1300578/pexels-photo-1300578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
+    /* background-position: center; */
     display: flex;
     align-items: center;
 }

@@ -46,8 +46,8 @@ const SearchResults = ({ data }) => {
           ))
         ) : filter_products_formats.length > 0 ? (
           filter_products_formats.map((vinyl, i) => (
-            <Link to={`/vinyl/${vinyl.id}`} key={i}>
-              <Card>
+            <Link to={`/vinyl/${vinyl.id}`}>
+              <Card key={i}>
                 <img src={vinyl.cover_image} alt="" className="card-img-top" />
                 <div className="card-body">
                   <h6 className="card-text ">{vinyl.title}</h6>
@@ -66,11 +66,11 @@ const SearchResults = ({ data }) => {
           <>
             {data.length > 0 &&
               data.map((vinyl, i) => (
-                <Card>
-                  <Link to={`/vinyl/${vinyl.id}`} key={i}>
+                <Card key={i}>
+                  <Link to={`/vinyl/${vinyl.id}`}>
                     <img
                       src={vinyl.cover_image}
-                      alt=""
+                      alt="cover_image"
                       className="card-img-top"
                     />
                     <div className="card-body">
@@ -90,105 +90,9 @@ const SearchResults = ({ data }) => {
               ))}
           </>
         )}
-        {/* {filter_products_formats.length > 0 &&
-          filter_products_formats.map((vinyl, i) => (
-            <Link to={`/vinyl/${vinyl.id}`} key={i}>
-              <Card className="modal-card">
-                <img src={vinyl.cover_image} alt="" className="card-img-top" />
-                <div className="card-body">
-                  <h6 className="card-text ">{vinyl.title}</h6>
-                </div>
-                <span>{vinyl?.label[0]}</span>
-              </Card>
-            </Link>
-          ))}
-
-        {filter_products_category.length > 0 &&
-          filter_products_category.map((vinyl, i) => (
-            <Link to={`/vinyl/${vinyl.id}`} key={i}>
-              <Card className="modal-card">
-                <img src={vinyl.cover_image} alt="" className="card-img-top" />
-                <div className="card-body">
-                  <h6 className="card-text ">{vinyl.title}</h6>
-                </div>
-                <span>{vinyl?.label[0]}</span>
-              </Card>
-            </Link>
-          ))}
-
-        {filter_products_category.length < 1 &&
-          filter_products_formats.length < 1 && (
-            <>
-              {data.length > 0 ? (
-                data.map((vinyl, i) => (
-                  <Link to={`/vinyl/${vinyl.id}`} key={i}>
-                    <Card className="modal-card">
-                      <img
-                        src={vinyl.cover_image}
-                        alt=""
-                        className="card-img-top"
-                      />
-                      <div className="card-body">
-                        <h6 className="card-text ">{vinyl.title}</h6>
-                      </div>
-                      <span>{vinyl?.label[0]}</span>
-                    </Card>
-                  </Link>
-                ))
-              ) : (
-                <ErrorMessage
-                  variant="danger"
-                  children={"No matching records found."}
-                />
-              )}
-            </>
-          )} */}
       </div>
     </>
   );
 };
 
-// && (
-//   <>
-//     {data.length > 0 ? (
-//       data.map((vinyl, i) => (
-//         <Link to={`/vinyl/${vinyl.id}`} key={i}>
-//           <Card className="modal-card">
-//             <img
-//               src={vinyl.cover_image}
-//               alt=""
-//               className="card-img-top"
-//             />
-//             <div className="card-body">
-//               <h6 className="card-text ">{vinyl.title}</h6>
-//             </div>
-//             <span>{vinyl?.label[0]}</span>
-//           </Card>
-//         </Link>
-//       ))
-
-{
-  /* {error ? (
-          <ErrorMessage />
-        ) : loading ? (
-          <Loading />
-        ) : data.length > 0 ? (
-          data?.map((vinyl, i) => (
-            <Link to={`/vinyl/${vinyl.id}`} key={i}>
-              <Card className="modal-card">
-                <img src={vinyl.cover_image} alt="" className="card-img-top" />
-                <div className="card-body">
-                  <h6 className="card-text ">{vinyl.title}</h6>
-                </div>
-                <span>{vinyl?.label[0]}</span>
-              </Card>
-            </Link>
-          ))
-        ) : (
-          <ErrorMessage
-            variant="danger"
-            children={"No matching records found."}
-          />
-        )} */
-}
 export default SearchResults;

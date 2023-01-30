@@ -23,15 +23,6 @@ const TurnTableSection = () => {
           </div>
         </div>
       </div>
-      {/* <div className="vinyl-label-animation">
-        {data.map((vinyl) => (
-          <>
-            <div className="inner">
-              <h6>{vinyl.label[0]}</h6>
-            </div>
-          </>
-        ))}
-      </div> */}
     </>
   );
 };

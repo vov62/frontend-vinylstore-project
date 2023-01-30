@@ -10,7 +10,6 @@ export const initialState = {
   wishlist: [],
   images: [],
   searchVinylResults: [],
-  // filter: { category: "all" },
 };
 
 export const fetchDataReducer = (state, action) => {
@@ -64,22 +63,6 @@ export const fetchDataReducer = (state, action) => {
         searchVinylResults: action.payload,
         error: "",
       };
-
-    // case "FILTER_PRODUCTS":
-    //   let { searchVinylResults } = state;
-    //   let tempFilterProduct = [...searchVinylResults];
-
-    //   const { category } = state.filters;
-
-    //   if (category) {
-    //     tempFilterProduct = tempFilterProduct.filter((curElem) => {
-    //       return curElem.category === category;
-    //     });
-    //   }
-    //   return {
-    //     ...state,
-    //     filter_products: tempFilterProduct,
-    //   };
     case "ADD_TO_CART":
       return {
         ...state,

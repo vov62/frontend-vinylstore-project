@@ -14,13 +14,13 @@ const DISCOGS_KEY = process.env.REACT_APP_DISCOGS_KEY;
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(fetchDataReducer, initialState);
-  console.log("the state:", state);
+  // console.log("the state:", state);
 
   const [filterState, filterDispatch] = useReducer(
     filterReducer,
     filterInitialState
   );
-  console.log("filter state:", filterState);
+  // console.log("filter state:", filterState);
 
   // API call
   const fetchData = async () => {

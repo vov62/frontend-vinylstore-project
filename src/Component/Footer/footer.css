@@ -1,5 +1,7 @@
 .footer-container {
-    background-color: #252525;
+    /* background-color: #252525; */
+    background-color: #5d5d5d;
+
     color: #fff;
 }
 
@@ -30,7 +32,8 @@
 
 .footer-body ul li:hover {
     text-decoration: underline;
-    color: #ccc999;
+    color: #000;
+
 }
 
 .footer-body.social ul {
@@ -53,7 +56,7 @@
 }
 
 .copyright-section {
-    background-color: #f1f1f1;
+    background-color: #eef2f3;
     display: flex;
     justify-content: center;
     align-items: center;

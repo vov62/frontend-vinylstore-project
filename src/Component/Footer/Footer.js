@@ -14,10 +14,10 @@ const Footer = () => {
             <h5> Information</h5>
             <ul>
               <li>
-                <a href="#*">About us</a>
+                <a href="/about-us">About us</a>
               </li>
               <li>
-                <a href="#*"> Contact Us </a>
+                <a href="/contact"> Contact Us </a>
               </li>
               <li>
                 <a href="#*"> Privacy Policy </a>
@@ -82,7 +82,7 @@ const Footer = () => {
       </div>
       <div className="copyright-section">
         <div className="copyright-text">
-          <p> &copy; 2022 VovVinyl Store</p>
+          <p> &copy; 2022 Vov Vinyl Records</p>
         </div>
       </div>
     </footer>

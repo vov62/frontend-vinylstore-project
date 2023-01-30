@@ -129,7 +129,12 @@ const FilterSearch = () => {
         }}
       >
         <Button
-          variant="success"
+          style={{
+            backgroundColor: "grey",
+
+            border: "none",
+          }}
+          // variant="success"
           onClick={() =>
             filterDispatch(
               {

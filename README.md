@@ -1,7 +1,7 @@
 
 <h1>About The Project 🙋</h1>
 <h3>Frontend Reggae vinyl App store.</h3>
-:white_medium_small_square: A platform for Reagge music discovery and collection.</br>
+:white_medium_small_square: Responsive platform for Reagge music discovery and collection.</br>
 :white_medium_small_square: users can search for Reagge vinyl music and add them to the cart.
 </br>
 </br>
@@ -19,9 +19,19 @@ run 'npm start' to run the project  :grinning:
 </br>
 </br>
 
-<img width="600" alt="vinyl project" src="https://user-images.githubusercontent.com/71568364/199798929-508ff02e-9b98-4755-ad32-3786f4ce06c5.png">
+<img width="600" alt="vinyl project hero" src="https://user-images.githubusercontent.com/71568364/214017313-98df2b50-87f3-478a-b406-36830a811a53.png">
 </br>
 </br>
 
-<img width="600" alt="vinyl project2" src="https://user-images.githubusercontent.com/71568364/199799143-ef6aceff-25c4-4b9c-81e6-9fd4a5425ca7.png">
+<img width="600" alt="vinyl project hero2" src="https://user-images.githubusercontent.com/71568364/214017539-6e5d8799-a6ae-4b90-82e3-2723cda54666.png">
+</br>
+</br>
+<img width="600" alt="vinyl project hero5" src="https://user-images.githubusercontent.com/71568364/214017702-00230176-1841-43ae-b748-ccb2fdb91a19.png">
+</br>
+</br>
+<img width="600" alt="vinyl project hero6" src="https://user-images.githubusercontent.com/71568364/214017778-ae8abc76-c124-4ffe-b7cb-197021405add.png">
+</br>
+</br>
+<img width="300" alt="vinyl project hero7" src="https://user-images.githubusercontent.com/71568364/214018063-1e5b333b-61c2-4088-9469-3a7132a552cd.png">
+
 

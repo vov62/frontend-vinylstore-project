@@ -1,16 +1,23 @@
+import React, { Suspense } from "react";
 import Header from "./Component/Header/Header";
 import Footer from "./Component/Footer/Footer";
-import Cart from "./Pages/Cart/Cart";
-import Home from "./Pages/Home/Home";
+// import Cart from "./Pages/Cart/Cart";
 import About from "./Pages/About/About";
-import SearchVinyl from "./Pages/SearchVinyl/SearchVinyl";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SingleVinyl from "./Pages/SingleVinyl/SingleVinyl";
 import ScrollToTop from "./hooks/ScrollToTop ";
 import { NotFoundPage } from "./Pages/NotFoundPage";
 import SingleTurnTable from "./Pages/SingleTurnTable/SingleTurnTable";
 import NewsLetter from "./Component/NewsLetter/NewsLetter";
 import Contact from "./Pages/Contact/Contact";
+import Loading from "./Component/Loading";
+
+// Lazy Loading for better performance
+const LazyHome = React.lazy(() => import("./Pages/Home/Home"));
+const LazyStore = React.lazy(() => import("./Pages/SearchVinyl/SearchVinyl"));
+const LazySingleVinyl = React.lazy(() =>
+  import("./Pages/SingleVinyl/SingleVinyl")
+);
+const LazyCart = React.lazy(() => import("./Pages/Cart/Cart"));
 
 const App = () => {
   return (
@@ -20,16 +27,18 @@ const App = () => {
         <Header />
       </header>
       <main>
-        <Routes>
-          <Route path="*" element={<NotFoundPage />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/SearchVinyl" element={<SearchVinyl />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/vinyl/:id" element={<SingleVinyl />} />
-          <Route path="/turnTable/:id" element={<SingleTurnTable />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/" element={<LazyHome />} />
+            <Route path="/SearchVinyl" element={<LazyStore />} />
+            <Route path="/cart" element={<LazyCart />} />
+            <Route path="/vinyl/:id" element={<LazySingleVinyl />} />
+            <Route path="/turnTable/:id" element={<SingleTurnTable />} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
       </main>
       <NewsLetter />
       <Footer />

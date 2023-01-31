@@ -51,15 +51,12 @@
 
     .hero-content {
         margin-bottom: 60px;
-        padding: 5px;
-        margin-left: 5px;
-
+        margin-left: 8px;
     }
 
     .hero-content h2 {
         font-size: 20px;
-        letter-spacing: -0.8px;
-
+        letter-spacing: -1px;
     }
 
     .hero-content p {

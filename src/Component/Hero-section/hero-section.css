@@ -6,12 +6,12 @@
     /* background-position: center; */
     display: flex;
     align-items: center;
+    /* padding: 100px 0px; */
 }
 
 .hero-content {
     /* border: 1px solid #000; */
     margin-left: 40px;
-
 }
 
 .hero-content h2 {
@@ -50,14 +50,16 @@
     }
 
     .hero-content {
-        z-index: 999;
         margin-bottom: 60px;
         padding: 5px;
         margin-left: 5px;
+
     }
 
     .hero-content h2 {
         font-size: 20px;
+        letter-spacing: -0.8px;
+
     }
 
     .hero-content p {

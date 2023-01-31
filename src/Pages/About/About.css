@@ -4,7 +4,6 @@
     margin-top: 10px;
     line-height: 1.6;
     font-weight: 600;
-    /* border: 1px solid #000; */
 }
 
 .about-container h2 {
@@ -17,7 +16,6 @@
 .about-container h3 {
     text-decoration: underline;
     text-underline-offset: 10px;
-    /* padding: 30px 0; */
     padding-top: 20px;
     padding-bottom: 10px;
     color: #383833;
@@ -25,7 +23,6 @@
 }
 
 .about-store-section {
-    /* border: 1px solid #000; */
     padding-bottom: 20px;
     font-size: 15px;
     border-bottom: 1px solid #d5d5d5;
@@ -37,7 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid red; */
 }
 
 
@@ -112,10 +108,8 @@
     }
 
     .store-events {
-        /* padding: 30px; */
         flex-wrap: wrap;
         gap: 20px;
-        /* border: 1px solid #000; */
     }
 
     .events-card {

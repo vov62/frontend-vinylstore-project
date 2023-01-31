@@ -6,7 +6,7 @@ import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 const VinylModal = (props) => {
-  const { wishlist, dispatch, singleVinyl } = useGlobalContext();
+  const { wishlist, dispatch } = useGlobalContext();
 
   if (!props.show) return null;
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./turnTableList.css";
 
 const TurnTableList = ({ item, small_id }) => {
@@ -10,7 +9,6 @@ const TurnTableList = ({ item, small_id }) => {
         <div className="grid-details">
           <div className="grid-title">{item.title}</div>
           <span> &euro;{item.price}</span>
-          {/* <div className="grid-image-price">&euro; {item.price}</div> */}
         </div>
       </div>
     </div>

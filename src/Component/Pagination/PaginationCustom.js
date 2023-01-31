@@ -71,14 +71,6 @@ const PaginationCustom = ({
       >
         &gt;&gt;
       </button>
-
-      {/* <ul>
-        {pageNumbers.map((page) => (
-          <li key={page}>
-            <a href="!#"> {page}</a>
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };

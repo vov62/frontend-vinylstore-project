@@ -1,101 +1,71 @@
-import React, { useState } from "react";
-import { Navbar, Container, Nav, Dropdown, Badge } from "react-bootstrap";
+import React, { useEffect, useState, useRef } from "react";
+import { Nav, Dropdown, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
-import { BsVinylFill } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
-import { useGlobalContext } from "../context/Context";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
+import { useGlobalContext } from "../../context/Context";
 import { Button } from "react-bootstrap";
-import noImage from "../assets/no image.jpeg";
-import VinylModal from "./VinylModal";
-import img from "../assets/second vinyl.json";
+// import noImage from "../assets/no image.jpeg";
+import VinylModal from "../VinylModal";
+import img from "../../assets/second vinyl.json";
 import Lottie from "lottie-react";
+import "./header.css";
 
 const Header = () => {
+  // context
   const { cart, dispatch, wishlist } = useGlobalContext();
-  const [expanded, setExpanded] = useState(false);
+  const menuRef = useRef();
+
+  // mobile menu
+  const [mobileMenu, setMobileMenu] = useState(false);
+  // navbar background scroll
+  // const [navbarBackground, setNavbarBackground] = useState(false);
+
   // modal
   const [modalShow, setModalShow] = useState(false);
 
+  // change navbar color on scroll
+  // const changeBackground = () => {
+  //   if (window.scrollY >= 300) {
+  //     setNavbarBackground(true);
+  //   } else {
+  //     setNavbarBackground(false);
+  //   }
+  // };
+  // window.addEventListener("scroll", changeBackground);
+
+  // close menu when click outside the menu
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setMobileMenu(false);
+      }
+    };
+    document.body.addEventListener("mousedown", handler);
+
+    return () => document.body.removeEventListener("mousedown", handler);
+  }, []);
+
   return (
     <>
-      <Navbar
-        collapseOnSelect
-        expand="sm"
-        expanded={expanded}
-        variant="dark"
-        style={{
-          backgroundColor: "#252525",
-          color: "#fff",
-        }}
-      >
-        <Container fluid>
-          {/* <div style={{ width: "75px", marginRight: "8px" }}>
+      <div className="main-navbar">
+        <div className="sub-main-navbar">
+          <div className="hamburger-icon">
+            <GiHamburgerMenu
+              size={25}
+              onClick={() => setMobileMenu((prev) => !prev)}
+            />
+          </div>
+          <div className="left-navbar">
             <Lottie animationData={img} />
-          </div> */}
-          <Navbar.Brand>
-            <Link
-              to="/"
-              onClick={() => setExpanded(false)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                // marginLeft: "8px",
-              }}
-            >
-              <div style={{ width: "75px", marginRight: "8px" }}>
-                <Lottie animationData={img} />
-              </div>
-              Vinyl-Store
+            <Link to="/">
+              <h1>Vov-Records</h1>
             </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
-            onClick={() => setExpanded(expanded ? false : "expanded")}
-          />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link
-                className="nav-li active"
-                as={Link}
-                to="/"
-                onClick={() =>
-                  setTimeout(() => {
-                    setExpanded(false);
-                  }, 150)
-                }
-              >
-                Home
-              </Nav.Link>
+          </div>
 
-              <Nav.Link
-                className="nav-li"
-                as={Link}
-                to="/about-us"
-                onClick={() =>
-                  setTimeout(() => {
-                    setExpanded(false);
-                  }, 150)
-                }
-              >
-                About Us
-              </Nav.Link>
-
-              <Nav.Link
-                className="nav-li"
-                as={Link}
-                to="/SearchVinyl"
-                onClick={() =>
-                  setTimeout(() => {
-                    setExpanded(false);
-                  }, 150)
-                }
-              >
-                Store
-              </Nav.Link>
-            </Nav>
-            {/* wishlist section */}
+          <div className="right-navbar">
             <Nav>
               <Nav.Link onClick={() => setModalShow(true)}>
                 <span>
@@ -110,21 +80,34 @@ const Header = () => {
                   ) : (
                     <BsHeart
                       style={{
-                        fill: "#fff",
+                        fill: "#000",
                         marginRight: "5px",
                         fontSize: "18px",
                       }}
                     />
                   )}
                 </span>
-                Wishlist
+                <span className="wishlist-Title">Wishlist</span>
               </Nav.Link>
 
               {/* Cart section */}
               <Dropdown align="end">
-                <Dropdown.Toggle variant="dark">
+                <Dropdown.Toggle
+                  style={{
+                    color: "#000",
+                    backgroundColor: "unset",
+                    border: "inherit",
+                  }}
+                >
                   <FaShoppingCart fontSize="20px" />
-                  <Badge bg="transparent">
+                  <Badge
+                    bg="inherit"
+                    style={{
+                      color: "#000",
+                      // backgroundColor: "#dc3545",
+                      fontSize: "12px",
+                    }}
+                  >
                     {cart.length ? cart.length : null}
                   </Badge>
                 </Dropdown.Toggle>
@@ -138,7 +121,7 @@ const Header = () => {
                             src={
                               item.images
                                 ? item.images[0].resource_url
-                                : noImage
+                                : "no image"
                             }
                             alt=""
                             className="cartItemImg"
@@ -164,14 +147,7 @@ const Header = () => {
                           />
                         </span>
                       ))}
-                      <Link
-                        to="/cart"
-                        onClick={() =>
-                          setTimeout(() => {
-                            setExpanded(false);
-                          }, 150)
-                        }
-                      >
+                      <Link to="/cart">
                         <Button
                           variant="success"
                           style={{ width: "95%", margin: "0 10px" }}
@@ -186,9 +162,31 @@ const Header = () => {
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+          </div>
+        </div>
+
+        <div ref={menuRef} className="links-container">
+          <ul className={`links-ul ${mobileMenu ? "show" : ""}`}>
+            <div className="mobile-menu-close-btn">
+              <GrClose size={25} onClick={() => setMobileMenu(false)} />
+            </div>
+
+            <li className="link-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="link-item">
+              <Link to="/SearchVinyl">Store</Link>
+            </li>
+            <li className="link-item">
+              <Link to="/about-us">About us</Link>
+            </li>
+            <li className="link-item">
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       {/* Modal section */}
       {modalShow === true ? (
         <VinylModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -196,11 +194,5 @@ const Header = () => {
     </>
   );
 };
-
-{
-  /* <div style={{ width: "100px" }}>
-              <Lottie animationData={img} />
-            </div> */
-}
 
 export default Header;

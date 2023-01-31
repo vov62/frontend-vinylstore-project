@@ -1,14 +1,10 @@
 .wrapper {
-    /* border: 3px red solid; */
-    /* background-color: #f1f1f1; */
-    /* background-color: #010101; */
     color: #212529;
 }
 
 .data-container {
     display: flex;
     justify-content: center;
-    /* border: 2px solid #eee; */
 }
 
 .back-home-link {
@@ -19,14 +15,6 @@
 .vinyl-details {
     margin: 5px 0 0 5%;
     flex: 1;
-}
-
-.vinyl-img-carousel {
-    /* background-color: #f1f1f1; */
-}
-
-.slider-wrapper.axis-horizontal {
-    /* border: 2px red solid; */
 }
 
 .thumbs-wrapper.axis-vertical {
@@ -53,7 +41,6 @@
     padding: 5px;
     margin: 0 70px 0 0;
     flex: 1;
-    /* border: 2px solid #fc7053; */
 }
 
 .vinyl-content-title {

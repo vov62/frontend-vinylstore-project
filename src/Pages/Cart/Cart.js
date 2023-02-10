@@ -112,7 +112,7 @@ const Cart = () => {
                 onClick={() =>
                   toast.success("Thank's for shopping with us! ", {
                     position: "top-right",
-                    autoClose: 2000,
+                    autoClose: 50000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

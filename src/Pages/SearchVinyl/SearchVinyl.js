@@ -24,6 +24,9 @@ const SearchVinyl = () => {
   // search query
   const [query, setQuery] = useState("");
 
+  // search expend
+  const [isExpended, setIsExpended] = useState(false);
+
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [vinylPostsPerPage, setVinylPostsPerPage] = useState(10);
@@ -66,16 +69,13 @@ const SearchVinyl = () => {
     }
   };
 
-  const newOne = (data, property) => {
-    let newVal = data.map((cuElem) => {
-      return cuElem[property][1];
-    });
-    // console.log(newVal);
-    return (newVal = ["All", ...new Set(newVal)]);
-    // console.log(newVal);
+  const expendedContainer = () => {
+    setIsExpended(true);
   };
 
-  const categoryOnlyData = newOne(searchVinylResults, "format");
+  const collapseContainer = () => {
+    setIsExpended(false);
+  };
 
   useEffect(() => {
     vinylSearchData();
@@ -99,6 +99,7 @@ const SearchVinyl = () => {
               placeholder="Search artists, albums..."
               onChange={handleInput}
               value={query}
+              onFocus={expendedContainer}
             />
             <button className="search-form-icon">
               <AiOutlineSearch size={28} />

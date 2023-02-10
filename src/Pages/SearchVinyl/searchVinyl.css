@@ -61,12 +61,6 @@
 
 }
 
-.search-vinyl-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .search-vinyl-input form {
     display: flex;
     justify-content: center;
@@ -75,12 +69,19 @@
 
 }
 
+.search-vinyl-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .search-vinyl-input input {
     padding: 8px 80px;
     border-radius: 10px;
     border: 1px solid black;
     outline: none;
-    display: flex;
+    margin-bottom: 5px;
 }
 
 .search-form-icon {

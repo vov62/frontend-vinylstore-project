@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import noImage from "../../assets/no image.jpeg";
 import Alert from "react-bootstrap/Alert";
+import { toast } from "react-toastify";
 import "./cart.css";
 
 const Cart = () => {
@@ -108,6 +109,16 @@ const Cart = () => {
               <Button
                 variant="success"
                 style={{ width: "100%", marginTop: "10px" }}
+                onClick={() =>
+                  toast.success("Thank's for shopping with us! ", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                  })
+                }
               >
                 Checkout
               </Button>

@@ -4,6 +4,7 @@
 :white_medium_small_square: Responsive platform for Reagge music discovery and collection.</br>
 :white_medium_small_square: users can search for Reagge vinyl music and add them to the cart.
 </br>
+Live : https://vov-records.netlify.app/
 </br>
 <h2>Stack 📚</h2>
 :white_medium_small_square: React

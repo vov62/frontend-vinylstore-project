@@ -9,14 +9,11 @@
     position: relative;
     top: 0;
     transition: top .5s ease;
-    /* background-color: #f1f1f1 !important; */
-    /* background: linear-gradient(to right, #42A487, #DBB333, #BB4D0F); */
 }
 
 .card:hover {
     box-shadow: 0 0 2px #111;
     top: -10px;
-
 }
 
 .card-body {

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
-import { AiFillHeart } from "react-icons/ai";
-import { BsHeart } from "react-icons/bs";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../context/Context";
 import ErrorMessage from "../Error";
 import Loading from "../Loading";
@@ -29,7 +27,11 @@ const SearchResults = ({ data }) => {
           filter_products_category.map((vinyl, i) => (
             <Link to={`/vinyl/${vinyl.id}`} key={i}>
               <Card>
-                <img src={vinyl?.cover_image} alt="" className="card-img-top" />
+                <img
+                  src={vinyl?.cover_image}
+                  alt="coverImage"
+                  className="card-img-top"
+                />
                 <div className="card-body">
                   <h6 className="card-text ">{vinyl?.title}</h6>
 

@@ -27,7 +27,6 @@ const SingleVinyl = () => {
 
   const { singleVinyl, loading, error, dispatch, cart, wishlist } =
     useGlobalContext();
-  // console.log(singleVinyl);
 
   const fetchSingleVinyl = async () => {
     try {

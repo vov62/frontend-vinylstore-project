@@ -78,7 +78,6 @@ a {
 
   .navbar-nav .nav-li:hover::after {
     width: 0;
-    /* transition: 0.2s; */
   }
 
   .navbar-nav .nav-li {
@@ -101,9 +100,6 @@ a {
 .vinyl-section-title h4 {
   text-decoration: underline;
   text-underline-offset: 10px;
-
-  /* position: relative; */
-  /* padding: 0 7px 15px; */
   font-weight: 600;
   color: #2e2e2e;
   font-size: 20px;
@@ -133,7 +129,6 @@ a {
 @media only screen and (max-width: 576px) {
   .vinyl-section {
     padding: 20px 0 70px 0;
-    /* border: 1px solid #333; */
   }
 
   .vinyl-section-title h4 {
@@ -147,11 +142,6 @@ a {
   position: absolute;
   z-index: 999;
   cursor: pointer;
-  /* border: none; */
-  /* border: 1px solid #0e0e0e; */
-  /* border-radius: 8vw; */
-  /* background-color: #f1f1f1; */
-  /* background-color: #111; */
   z-index: 99 !important;
   top: 40%;
   opacity: 0.6;
@@ -208,8 +198,6 @@ a {
 
 .card.modal-card {
   margin: 20px !important;
-  /* background-color: #f1f1f1 !important; */
-
 }
 
 .modal-content {

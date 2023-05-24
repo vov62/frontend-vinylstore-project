@@ -52,7 +52,7 @@ const DataList = ({ data }) => {
   return (
     <>
       <Slider {...settings}>
-        {data.map((item, i) => {
+        {data?.map((item, i) => {
           return (
             <DataCard
               key={i}

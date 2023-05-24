@@ -28,7 +28,7 @@ const AppProvider = ({ children }) => {
       const response = await axios(
         `${DISCOGS_URL}/database/search?&genre=reggae&year=1980&format=vinyl&token=${DISCOGS_KEY}`
       );
-      const data = response.data.results;
+      const data = response?.data?.results;
 
       if (data) {
         dispatch({ type: "FETCH_SUCCESS", payload: data });
@@ -44,7 +44,7 @@ const AppProvider = ({ children }) => {
       const response = await axios(
         `${DISCOGS_URL}/database/search?&style=reggae,dub&format=vinyl&token=${DISCOGS_KEY}`
       );
-      const data = response.data.results;
+      const data = response?.data?.results;
       if (data) {
         dispatch({ type: "FETCH_DUB_STYLE", payload: data });
       }
@@ -58,7 +58,7 @@ const AppProvider = ({ children }) => {
       const response = await axios(
         `${DISCOGS_URL}/database/search?&style=dancehall&format=vinyl&token=${DISCOGS_KEY}`
       );
-      const data = response.data.results;
+      const data = response?.data?.results;
       if (data) {
         dispatch({ type: "FETCH_DANCEHALL_STYLE", payload: data });
       }
@@ -72,7 +72,7 @@ const AppProvider = ({ children }) => {
       const response = await axios(
         `${DISCOGS_URL}/database/search?&style=ska&format=vinyl&token=${DISCOGS_KEY}`
       );
-      const data = response.data.results;
+      const data = response?.data?.results;
       if (data) {
         dispatch({ type: "FETCH_SKA_STYLE", payload: data });
       }
